@@ -2,6 +2,6 @@
 	"pages": [
 		{"title": "Number of tokensales", "url": "/number-of-tokensales/index.html"},
 		{"title": "Top 20 largest", "url": "/top-ico/index.html"},
-		{"title": "Projects by industry", "url": "/top-industries/index.html"}
+		{"title": "Projects by industry", "url": "/projects-by-industry/index.html"}
 	]
 }

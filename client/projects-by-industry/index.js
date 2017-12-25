@@ -1,6 +1,6 @@
 var colors = ['#f98a83', '#989898', '#85f77e']
 new Vue({
-  el: '#top-industries',
+  el: '#projects-by-industry',
   template:
   `
   <div>
@@ -34,7 +34,7 @@ new Vue({
         yAxis: {
             min: 0,
             title: {
-                text: 'n',
+                text: 'number of projects',
                 align: 'high'
             },
             labels: {
