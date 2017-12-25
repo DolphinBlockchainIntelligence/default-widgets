@@ -34,7 +34,7 @@ new Vue({
         yAxis: {
             min: 0,
             title: {
-                text: 'n',
+                text: 'number of projects',
                 align: 'high'
             },
             labels: {
