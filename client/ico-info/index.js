@@ -45,12 +45,6 @@ new Vue({
           <dd class="col-sm-12">
             <p>{{project.tokenDescription | ifEmpty}}</p>
           </dd>
-          <dt class="col-sm-12">Links:</dt>
-          <dd class="col-sm-12">
-            <ul class="list-unstyled">
-              <li v-for="link in project.links"><a :href="link.url">{{link.type}}</a></li>
-            </ul>
-          </dd>
         </dl>
       </div>
     </div>
