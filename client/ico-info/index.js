@@ -2,7 +2,8 @@ new Vue({
   el: '#vue-container',
   template:
   `
-  <div class="container">
+  <div class="">
+    <br>
     <div class="row">
       <div class="col-lg-6 col-sm-12">
         <dl class="row">
