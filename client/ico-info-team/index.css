@@ -1,0 +1,28 @@
+.owl-carousel{
+	padding: 10px 0;
+}
+
+.team{
+	position: relative;
+}
+
+.team_info{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+	text-align: center;
+	color: #fff;
+	padding: 8px;
+}
+.team_info h5 {
+	font-weight: 300;
+}
+.team_info a {
+	color: #fff;
+}
+.team_info a:hover{
+	color: #fff;
+	text-decoration: none;
+}

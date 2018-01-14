@@ -4,35 +4,42 @@ new Vue({
   `
   <div class="">
     <br>
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        <dl class="row">
-          <dt class="col-sm-5">Sale type:</dt>
-          <dd class="col-sm-7">{{project.category}}</dd>
-
-          <dt class="col-sm-5">Sale start - finish dates:</dt>
-          <dd class="col-sm-7">{{project.release | ifEmpty}} {{project.release | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">SoftCap:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">HardCap:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Acceptable coins:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Special requirements:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Raised cap:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Actual finish date:</dt>
-          <dd class="col-sm-7">{{project.release | ifEmpty}} {{project.release | ifEmpty}}</dd>
-        </dl>
-      </div>
-    </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>Sale type:</td>
+          <td>{{project.category}}</td>
+        </tr>
+         <tr>
+          <td>Sale start - finish dates:</td>
+          <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>SoftCap:</td>
+          <td>{{project.symbol | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>HardCap:</td>
+          <td>{{project.symbol | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>Acceptable coins:</td>
+          <td>{{project.symbol | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>Special requirements:</td>
+          <td>{{project.symbol | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>Raised cap:</td>
+          <td>{{project.symbol | ifEmpty}}</td>
+        </tr>
+         <tr>
+          <td>Actual finish date:</td>
+          <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   `,
   data: function data() {
