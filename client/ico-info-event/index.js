@@ -2,45 +2,42 @@ new Vue({
   el: '#vue-container',
   template:
   `
-  <div class="">
-    <br>
     <table class="table">
       <tbody>
         <tr>
           <td>Sale type:</td>
           <td>{{project.category}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>Sale start - finish dates:</td>
           <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>SoftCap:</td>
           <td>{{project.symbol | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>HardCap:</td>
           <td>{{project.symbol | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>Acceptable coins:</td>
           <td>{{project.symbol | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>Special requirements:</td>
           <td>{{project.symbol | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>Raised cap:</td>
           <td>{{project.symbol | ifEmpty}}</td>
         </tr>
-         <tr>
+          <tr>
           <td>Actual finish date:</td>
           <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
         </tr>
       </tbody>
     </table>
-  </div>
   `,
   data: function data() {
     return {

@@ -2,21 +2,11 @@ new Vue({
   el: '#vue-container',
   template:
   `
-  <div class="">
-    <br>
-    <div class="row">
-      <div class="col-sm-12">
-        <dl class="row">
-          <dt class="col-sm-12">Links:</dt>
-          <dd class="col-sm-12">
-            <ul class="list-unstyled">
-              <li v-for="link in project.links"><a :href="link.url" target="_blank">{{link.type}}</a></li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
+    <table class="table">
+      <tr v-for="link in project.links">
+        <td><a :href="link.url" target="_blank">{{link.type}}</a></td>
+      </tr>
+    </table>
   `,
   data: function data() {
     return {

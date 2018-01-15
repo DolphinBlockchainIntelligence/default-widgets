@@ -2,8 +2,6 @@ new Vue({
   el: '#vue-container',
   template:
   `
-  <div class="">
-    <br>
     <table class="table">
       <tbody>
         <tr>
@@ -78,7 +76,6 @@ new Vue({
         </tr>
       </tbody>
     </table>
-  </div>
   `,
   data: function data() {
     return {

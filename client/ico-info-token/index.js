@@ -2,62 +2,46 @@ new Vue({
   el: '#vue-container',
   template:
   `
-  <div class="">
-    <br>
-    <div class="row">
-      <dt class="col-sm-5">Category:</dt>
-      <dd class="col-sm-7">{{project.category}}</dd>
-      <dt class="col-sm-5">Industry:</dt>
-      <dd class="col-sm-7">{{project.category}}</dd>
-
-      <dt class="col-sm-5">Keywords:</dt>
-      <dd class="col-sm-7">
-        <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
-      </dd>
-
-      <dt class="col-sm-5">Description:</dt>
-      <dd class="col-sm-7">Marketplace based on a smart-contract and a platform for collaborative crypto-asset investment analysis.</dd>
-
-      <dt class="col-sm-5">The formal business entity:</dt>
-      <dd class="col-sm-7">{{project.formal | ifEmpty}}</dd>
-
-      <dt class="col-sm-5">Project homeland:</dt>
-      <dd class="col-sm-7">{{project.homeland | ifEmpty}}</dd>
-
-      <dt class="col-sm-5">Project platform:</dt>
-      <dd class="col-sm-7">{{project.coins | ifEmpty}}</dd>
-
-      <dt class="col-sm-5">Token platform:</dt>
-      <dd class="col-sm-7">{{project.tokenPlatform | ifEmpty}}</dd>
-
-      <dt class="col-sm-5">Code repository:</dt>
-      <dd class="col-sm-7"><a href="https://github.com/DolphinBlockchainIntelligence" target="_blank">github</a></dd>
-
-
-      <dt class="col-sm-5">Release date of MVP:</dt>
-      <dd class="col-sm-7">{{project.release | ifEmpty}}</dd>
-
-     
-
-      <dt class="col-sm-5">Token's ticker code:</dt>
-      <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-      
-
-      <dt class="col-sm-5">Total emission:</dt>
-      <dd class="col-sm-7">{{project.emission | ifEmpty}}</dd>
-
-      <dt class="col-sm-5">Distribution of tokens:</dt>
-      <dd class="col-sm-7">{{project.distribution | ifEmpty}}</dd>
-
-      
-
-      <dt class="col-sm-12">Your token gives the right:</dt>
-      <dd class="col-sm-12">
-        <p>{{project.tokenDescription | ifEmpty}}</p>
-      </dd>
-    </div>
-  </div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Name of the stage:</td>
+        <td>{{project.stages[0].type}}}</td>
+      </tr>
+      <tr>
+        <td>Name of the token:</td>
+        <td>{{project.stages[0].type}}</td>
+      </tr>
+        <tr>
+        <td>Sale start - finish dates:</td>
+        <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>SoftCap:</td>
+        <td>{{project.symbol | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>HardCap:</td>
+        <td>{{project.symbol | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>Acceptable coins:</td>
+        <td>{{project.symbol | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>Special requirements:</td>
+        <td>{{project.symbol | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>Raised cap:</td>
+        <td>{{project.symbol | ifEmpty}}</td>
+      </tr>
+        <tr>
+        <td>Actual finish date:</td>
+        <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+      </tr>
+    </tbody>
+  </table>
   `,
   data: function data() {
     return {
