@@ -3,7 +3,6 @@ new Vue({
   template:
   `
   <div class="container">
-
     <div class="tabs">
       <a href="#1" class="active">Project</a>
       <a href="#2">Token</a>
@@ -18,38 +17,8 @@ new Vue({
             <div class="project_info_main">
               <h6>Category:</h6>
               <p>{{project.category}}</p>
-
               <h6>Industry:</h6>
-              <p>{{project.category}}</p>
-
-              <h6>Keywords:</h6>
-              <p>
-                <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
-              </p>
-
-              <h6>Project platform:</h6>
-              <p>{{project.coins | ifEmpty}}</p>
-
-              <h6>Release date of MVP:</h6>
-              <p>{{project.release | ifEmpty}}</p>
-
-              <h6>Project homeland:</h6>
-              <p>{{project.homeland | ifEmpty}}</p>
-
-              <h6>'Token's ticker code:</h6>
-              <p>{{project.symbol | ifEmpty}}</p>
-
-              <h6>Token platform:</h6>
-              <p>{{project.tokenPlatform | ifEmpty}}</p>
-
-              <h6>Total emission:</h6>
-              <p>{{project.emission | ifEmpty}}</p>
-
-              <h6>Distribution of tokens:</h6>
-              <p>{{project.distribution | ifEmpty}}</p>
-
-              <h6>The formal business entity:</h6>
-              <p>{{project.formal | ifEmpty}}</p>
+              <p>{{project.industry}}</p>
             </div>
             <div class="project_info_descr">
               <h6>Description:</h6>
@@ -60,15 +29,41 @@ new Vue({
             <button type="button" class="btn btn-primary">Digest</button>
             <button type="button" class="btn btn-outline-primary">Basic</button>
             <button type="button" class="btn btn-outline-primary">Detailed</button>
-            <div class="icons">
-              <a href="#" class="icon-globe"></a>
-              <a href="#" class="icon-edit"></a>
+            <div class="icons" v-if="projectComputed">
+              <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
             </div>
           </div>
         </div>
       </div>
       <div class="tabs_content_wrap" id="2">
-        2
+      <h6>Keywords:</h6>
+        <p>
+          <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
+        </p>
+
+        <h6>Project platform:</h6>
+        <p>{{project.coins | ifEmpty}}</p>
+
+        <h6>Release date of MVP:</h6>
+        <p>{{project.release | ifEmpty}}</p>
+
+        <h6>Project homeland:</h6>
+        <p>{{project.homeland | ifEmpty}}</p>
+
+        <h6>'Token's ticker code:</h6>
+        <p>{{project.symbol | ifEmpty}}</p>
+
+        <h6>Token platform:</h6>
+        <p>{{project.tokenPlatform | ifEmpty}}</p>
+
+        <h6>Total emission:</h6>
+        <p>{{project.emission | ifEmpty}}</p>
+
+        <h6>Distribution of tokens:</h6>
+        <p>{{project.distribution | ifEmpty}}</p>
+
+        <h6>The formal business entity:</h6>
+        <p>{{project.formal | ifEmpty}}</p>
       </div>
       <div class="tabs_content_wrap" id="3">
         3
@@ -196,6 +191,17 @@ new Vue({
     $('.event_head').on('click', function(){
       $(this).parent().toggleClass('open')
     })
+  },
+  computed: {
+    projectComputed: function() {
+      try {
+        var projectComputed = this.project
+        projectComputed.links.forEach(function(link){
+          link.dashedType = link.type.toLowerCase().split(' ').join('-')
+        })
+        return projectComputed
+      } catch(err) {}
+    }
   },
   methods: {
 
