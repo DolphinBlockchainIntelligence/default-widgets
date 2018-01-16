@@ -5,40 +5,32 @@ new Vue({
   <table class="table">
     <tbody>
       <tr>
-        <td>Name of the stage:</td>
-        <td>{{project.stages[0].type}}}</td>
+        <td>Name of the token:</td>
+        <td>Dolphin BI</td>
       </tr>
       <tr>
-        <td>Name of the token:</td>
-        <td>{{project.stages[0].type}}</td>
+        <td>Token's ticker code:</td>
+        <td>DOBI</td>
       </tr>
-        <tr>
-        <td>Sale start - finish dates:</td>
-        <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+      <tr>
+        <td>Token platform:</td>
+        <td>Ethereum</td>
       </tr>
-        <tr>
-        <td>SoftCap:</td>
-        <td>{{project.symbol | ifEmpty}}</td>
+      <tr>
+        <td>Your token gives the right:</td>
+        <td>to pay for subscription</td>
       </tr>
-        <tr>
-        <td>HardCap:</td>
-        <td>{{project.symbol | ifEmpty}}</td>
+      <tr>
+        <td>Total emission:</td>
+        <td>61500000</td>
       </tr>
-        <tr>
-        <td>Acceptable coins:</td>
-        <td>{{project.symbol | ifEmpty}}</td>
+      <tr>
+        <td>Distribution of tokens:</td>
+        <td>-</td>
       </tr>
-        <tr>
-        <td>Special requirements:</td>
-        <td>{{project.symbol | ifEmpty}}</td>
-      </tr>
-        <tr>
-        <td>Raised cap:</td>
-        <td>{{project.symbol | ifEmpty}}</td>
-      </tr>
-        <tr>
-        <td>Actual finish date:</td>
-        <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+      <tr>
+        <td>Extra emission:</td>
+        <td>-</td>
       </tr>
     </tbody>
   </table>

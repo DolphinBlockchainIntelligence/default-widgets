@@ -5,36 +5,56 @@ new Vue({
     <table class="table">
       <tbody>
         <tr>
-          <td>Sale type:</td>
-          <td>{{project.category}}</td>
+          <td>Start:</td>
+          <td>01.10.2017</td>
         </tr>
-          <tr>
-          <td>Sale start - finish dates:</td>
+        <tr>
+          <td>Finish:</td>
           <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
         </tr>
-          <tr>
-          <td>SoftCap:</td>
-          <td>{{project.symbol | ifEmpty}}</td>
+        <tr>
+          <td>Token to sell:</td>
+          <td>500000</td>
         </tr>
-          <tr>
-          <td>HardCap:</td>
-          <td>{{project.symbol | ifEmpty}}</td>
+        <tr>
+          <td>Softcap:</td>
+          <td>-</td>
         </tr>
-          <tr>
-          <td>Acceptable coins:</td>
-          <td>{{project.symbol | ifEmpty}}</td>
+        <tr>
+          <td>Hardcap:</td>
+          <td>-</td>
         </tr>
-          <tr>
-          <td>Special requirements:</td>
-          <td>{{project.symbol | ifEmpty}}</td>
+        <tr>
+          <td>Soft/hardcap coin:</td>
+          <td>-</td>
         </tr>
-          <tr>
-          <td>Raised cap:</td>
-          <td>{{project.symbol | ifEmpty}}</td>
+        <tr>
+          <td>Actually raised:</td>
+          <td>-</td>
         </tr>
-          <tr>
+        <tr>
           <td>Actual finish date:</td>
-          <td>{{project.release | ifEmpty}} {{project.release | ifEmpty}}</td>
+          <td>01.10.2017</td>
+        </tr>
+        <tr>
+          <td>Acceptable coins:</td>
+          <td>ETH</td>
+        </tr>
+        <tr>
+          <td>Special requirements:</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>ERC20 token address:</td>
+          <td>0x42dd5dCb38c16Db5029ECDbb56166cD7846aC3B4</td>
+        </tr>
+        <tr>
+          <td>Average price:</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Average price currency:</td>
+          <td>-</td>
         </tr>
       </tbody>
     </table>
