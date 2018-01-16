@@ -32,6 +32,24 @@ new Vue({
 
               <h6>Release date of MVP:</h6>
               <p>{{project.release | ifEmpty}}</p>
+
+              <h6>Project homeland:</h6>
+              <p>{{project.homeland | ifEmpty}}</p>
+
+              <h6>'Token's ticker code:</h6>
+              <p>{{project.symbol | ifEmpty}}</p>
+
+              <h6>Token platform:</h6>
+              <p>{{project.tokenPlatform | ifEmpty}}</p>
+
+              <h6>Total emission:</h6>
+              <p>{{project.emission | ifEmpty}}</p>
+
+              <h6>Distribution of tokens:</h6>
+              <p>{{project.distribution | ifEmpty}}</p>
+
+              <h6>The formal business entity:</h6>
+              <p>{{project.formal | ifEmpty}}</p>
             </div>
             <div class="project_info_descr">
               <h6>Description:</h6>
@@ -39,6 +57,9 @@ new Vue({
             </div>
           </div>
           <div class="project_actions">
+            <button type="button" class="btn btn-primary">Digest</button>
+            <button type="button" class="btn btn-outline-primary">Basic</button>
+            <button type="button" class="btn btn-outline-primary">Detailed</button>
             <h6>Links</h6>
             <ul class="list-unstyled">
               <li v-for="link in project.links"><a :href="link.url" target="_blank">{{link.type}}</a></li>
@@ -53,15 +74,60 @@ new Vue({
         3
       </div>
       <div class="tabs_content_wrap" id="4">
-        4
+        <div class="team">
+          <div class="person">
+            <div class="person_img">
+              <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
+            </div>
+            <div class="person_info">
+              <h5>CEO</h5>
+              <h3>Vitalik Buterin</h3>
+              <a href="#"><i class="flaticon-social-media-2"></i></a>
+              <a href="#"><i class="flaticon-social-media-1"></i></a>
+              <a href="#"><i class="flaticon-social-media"></i></a>
+            </div>
+          </div>
+          <div class="person">
+            <div class="person_img">
+              <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
+            </div>
+            <div class="person_info">
+              <h5>CEO</h5>
+              <h3>Vitalik Buterin</h3>
+              <a href="#"><i class="flaticon-social-media-2"></i></a>
+              <a href="#"><i class="flaticon-social-media-1"></i></a>
+              <a href="#"><i class="flaticon-social-media"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="tabs_content_wrap" id="5">
         <div class="events">
           <div class="event open">
-            <div class="even head">
+            <div class="event_head">
               <span class="event_type">Sale</span>
               <span class="event_start">1 Jul 2017</span>
               <span class="event_end">15 Jul 2017</span>
+              <div class="event_arrow">
+                <span><i>></i></span>
+              </div>
+            </div>
+            <div class="event_body">
+              <h6>Category:</h6>
+              <p>{{project.category}}</p>
+
+              <h6>Industry:</h6>
+              <p>{{project.category}}</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event_head">
+              <span class="event_type">Presale</span>
+              <span class="event_start">1 Jul 2017</span>
+              <span class="event_end">15 Jul 2017</span>
+              <div class="event_arrow">
+                <span><i>></i></span>
+              </div>
             </div>
             <div class="event_body">
               <h6>Category:</h6>
@@ -72,48 +138,6 @@ new Vue({
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-sm-12">
-        <dl class="row">
-          
-
-         
-
-          
-
-          
-
-          <dt class="col-sm-5">Project homeland:</dt>
-          <dd class="col-sm-7">{{project.homeland | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">'Token's ticker code:</dt>
-          <dd class="col-sm-7">{{project.symbol | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Token platform:</dt>
-          <dd class="col-sm-7">{{project.tokenPlatform | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Total emission:</dt>
-          <dd class="col-sm-7">{{project.emission | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">Distribution of tokens:</dt>
-          <dd class="col-sm-7">{{project.distribution | ifEmpty}}</dd>
-
-          <dt class="col-sm-5">The formal business entity:</dt>
-          <dd class="col-sm-7">{{project.formal | ifEmpty}}</dd>
-        </dl>
-      </div>
-      <div class="col-lg-6 col-sm-12">
-        <dl class="row">
-          
-          <dt class="col-sm-12">Links:</dt>
-          <dd class="col-sm-12">
-            <ul class="list-unstyled">
-              <li v-for="link in project.links"><a :href="link.url" target="_blank">{{link.type}}</a></li>
-            </ul>
-          </dd>
-        </dl>
       </div>
     </div>
   </div>
@@ -150,6 +174,10 @@ new Vue({
 
       $('.tabs_content .tabs_content_wrap').removeClass('active')
       $(target).addClass('active')
+    })
+
+    $('.event_head').on('click', function(){
+      $(this).parent().toggleClass('open')
     })
   },
   methods: {
