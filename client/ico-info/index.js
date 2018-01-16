@@ -29,19 +29,10 @@ new Vue({
             <button type="button" class="btn btn-primary">Digest</button>
             <button type="button" class="btn btn-outline-primary">Basic</button>
             <button type="button" class="btn btn-outline-primary">Detailed</button>
+            
             <div class="icons" v-if="projectComputed">
               <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
             </div>
-            <!-- <i class="website"></i>
-            <i class="icon-edit"></i>
-            <i class="twitter"></i>
-            <i class="facebook"></i>
-            <i class="github"></i>
-            <i class="icon-mail-alt"></i>
-            <i class="icon-linkedin"></i>
-            <i class="whitepaper"></i>
-            <i class="telegram-chat"></i>
-            <span> не хватает coinmarketcap bitcointalk-forum-topic</span> -->
           </div>
         </div>
       </div>
@@ -76,7 +67,14 @@ new Vue({
         <p>{{project.formal | ifEmpty}}</p>
       </div>
       <div class="tabs_content_wrap" id="3">
-        3
+        <h6>Legal Entity Name</h6>
+        <p>Dolphin blockchain intelligence</p>
+        <h6>Legal Entity Location</h6>
+        <p>Netherlands</p>
+        <h6>Legal Entity ID</h6>
+        <p>77164038209</p>
+        <h6>Date of registration</h6>
+        <p>01.10.2017</p>
       </div>
       <div class="tabs_content_wrap" id="4">
         <div class="team">

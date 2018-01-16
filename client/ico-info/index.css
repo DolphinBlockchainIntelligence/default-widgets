@@ -1,33 +1,40 @@
-.tabs a {
-  display: inline-block;
-  vertical-align: top;
-  padding: 4px 6px;
-  border-bottom: 1px solid transparent;
-  text-decoration: none;
-  position: relative;
-  color: black;
-  font-size: 24px; }
-  .tabs a:after {
-    content: '';
-    display: block;
-    height: 4px;
-    border-radius: 4px;
-    width: 100%;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    background: transparent;
-    transition: background .2s; }
-  .tabs a:hover {
-    color: black; }
-    .tabs a:hover:after {
-      background: #17a2b8; }
-
-.tabs .active:after {
-  background: #17a2b8; }
+.tabs {
+  padding: 4px; }
+  .tabs a {
+    display: inline-block;
+    vertical-align: top;
+    padding: 4px 6px;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    position: relative;
+    color: black;
+    font-size: 24px; }
+    @media (max-width: 420px) {
+      .tabs a {
+        font-size: 16px; } }
+    @media (max-width: 340px) {
+      .tabs a {
+        font-size: 14px; } }
+    .tabs a:after {
+      content: '';
+      display: block;
+      height: 4px;
+      border-radius: 4px;
+      width: 100%;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      background: transparent;
+      transition: background .2s; }
+    .tabs a:hover {
+      color: black; }
+      .tabs a:hover:after {
+        background: #17a2b8; }
+  .tabs .active:after {
+    background: #17a2b8; }
 
 .tabs_content {
-  padding: 10px 0; }
+  padding: 10px; }
   .tabs_content .tabs_content_wrap {
     display: none; }
     .tabs_content .tabs_content_wrap.active {
@@ -79,6 +86,9 @@ h6 {
   padding: 2px 6px;
   font-size: 32px;
   transition: color .2s; }
+  @media (max-width: 480px) {
+    .icons a {
+      font-size: 20px; } }
   .icons a:hover {
     color: #1f7886; }
 
@@ -89,15 +99,25 @@ h6 {
     cursor: pointer;
     background: #ededed;
     padding: 10px; }
-    .events .event .event_head .event_type {
-      flex: 0 0 200px; }
-    .events .event .event_head .event_start {
-      flex: 0 0 200px; }
-    .events .event .event_head .event_end {
-      flex: 0 0 200px; }
+    @media (max-width: 420px) {
+      .events .event .event_head {
+        justify-content: space-between; } }
+    .events .event .event_head > span {
+      font-size: 18px; }
+      @media (max-width: 420px) {
+        .events .event .event_head > span {
+          font-size: 14px; } }
+    .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
+      flex: 0 0 110px; }
+      @media (max-width: 420px) {
+        .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
+          flex: 0 0 auto; } }
     .events .event .event_head .event_arrow {
       flex: 1 0 auto;
       text-align: right; }
+      @media (max-width: 420px) {
+        .events .event .event_head .event_arrow {
+          flex: 0 0 auto; } }
       .events .event .event_head .event_arrow span {
         padding: 5px; }
       .events .event .event_head .event_arrow i {
@@ -109,13 +129,27 @@ h6 {
     height: 0;
     overflow: hidden;
     display: flex;
-    transition: all .2s; }
+    transition: all .2s;
+    max-width: 100%;
+    width: 100%; }
+    @media (max-width: 420px) {
+      .events .event .event_body {
+        flex-wrap: wrap; } }
     .events .event .event_body .event_info {
       flex: 0 0 280px;
       padding: 10px; }
+      @media (max-width: 600px) {
+        .events .event .event_body .event_info {
+          flex: 0 0 200px; } }
+      @media (max-width: 420px) {
+        .events .event .event_body .event_info {
+          flex: 0 0 100%; } }
     .events .event .event_body .event_descr {
-      flex: 1 0 auto;
+      flex: 0 1 auto;
       padding: 10px; }
+      @media (max-width: 420px) {
+        .events .event .event_body .event_descr {
+          flex: 0 0 100%; } }
 
 .events .event.open .event_head .event_arrow i {
   transform: rotate(-180deg); }
@@ -126,23 +160,37 @@ h6 {
 
 .team {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
   .team .person {
-    flex: 0 0 47%;
+    margin: 0 10px 10px 10px;
+    flex: 0 0 48%;
     border-radius: 4px;
     border: 2px solid #ccc;
     display: flex;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
     padding: 30px; }
+    @media (max-width: 920px) {
+      .team .person {
+        flex: 1 1 auto;
+        text-align: center; } }
     .team .person .person_img {
       flex: 0 0 auto;
       padding-right: 10px; }
+      @media (max-width: 420px) {
+        .team .person .person_img {
+          flex: 1 0 100%;
+          margin-bottom: 12px;
+          padding: 0; } }
       .team .person .person_img img {
         width: 180px;
         border-radius: 100%; }
     .team .person .person_info {
       padding-left: 20px;
       flex: 1 0 auto; }
+      @media (max-width: 420px) {
+        .team .person .person_info {
+          padding: 0; } }
     .team .person .icons {
       margin-left: -0.2em; }
       .team .person .icons a {
