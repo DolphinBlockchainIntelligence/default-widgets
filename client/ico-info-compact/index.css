@@ -1,0 +1,92 @@
+.owl-carousel{
+	padding: 10px 0;
+}
+
+.team{
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.team_info{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+	text-align: center;
+	color: #fff;
+	padding: 8px;
+}
+.team_info h5 {
+	font-weight: 300;
+}
+.team_info a {
+	color: #fff;
+}
+.team_info a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+.owl-carousel {
+	padding: 0;
+}
+.owl-carousel, .owl-stage, .owl-item {
+	height: 100vh;
+}
+
+.tabs{
+}
+
+.tabs a {
+	display: inline-block;
+	vertical-align: top;
+	padding: 4px 6px;
+	border-bottom: 1px solid transparent;
+	text-decoration: none;
+}
+.tabs a:hover{
+	border-bottom: 1px solid blue;
+}
+.tabs .active {
+	border-bottom: 1px solid blue;
+}
+
+
+.tabs_content{
+
+
+}
+
+.tabs_content_wrap{
+	display: none;
+}
+
+.tabs_content_wrap.active{
+	display: block;
+}
+
+
+.project_wrap{
+	display: flex;
+	flex-direction: column;
+
+}
+.project_info {
+	flex: 1 0 auto;
+	display: flex;
+}
+.project_info_main, .project_info_descr{
+	flex: 0 0 50%;
+}
+.project_actions {
+	flex: 0 0 auto;
+}
+
+h6 {
+	color: grey;
+	font-size: 12px;
+}
