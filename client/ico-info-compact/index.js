@@ -32,6 +32,16 @@ new Vue({
             <div class="icons" v-if="projectComputed">
               <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
             </div>
+            <i class="website"></i>
+            <i class="icon-edit"></i>
+            <i class="twitter"></i>
+            <i class="facebook"></i>
+            <i class="github"></i>
+            <i class="icon-mail-alt"></i>
+            <i class="icon-linkedin"></i>
+            <i class="whitepaper"></i>
+            <i class="telegram-chat"></i>
+            <span> не хватает coinmarketcap bitcointalk-forum-topic</span>
           </div>
         </div>
       </div>
