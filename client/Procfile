@@ -1,0 +1,2 @@
+server: ws --rewrite '/base/* -> http://new.petrusenko.pro/base/$1'
+sass: gulp
