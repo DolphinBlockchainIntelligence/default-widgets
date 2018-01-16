@@ -60,10 +60,10 @@ new Vue({
             <button type="button" class="btn btn-primary">Digest</button>
             <button type="button" class="btn btn-outline-primary">Basic</button>
             <button type="button" class="btn btn-outline-primary">Detailed</button>
-            <h6>Links</h6>
-            <ul class="list-unstyled">
-              <li v-for="link in project.links"><a :href="link.url" target="_blank">{{link.type}}</a></li>
-            </ul>
+            <div class="icons">
+              <a href="#" class="icon-globe"></a>
+              <a href="#" class="icon-edit"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -80,11 +80,13 @@ new Vue({
               <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
             </div>
             <div class="person_info">
-              <h5>CEO</h5>
               <h3>Vitalik Buterin</h3>
-              <a href="#"><i class="flaticon-social-media-2"></i></a>
-              <a href="#"><i class="flaticon-social-media-1"></i></a>
-              <a href="#"><i class="flaticon-social-media"></i></a>
+              <h5>CEO</h5>
+              <br>
+              <div class="icons">
+                <a href="#" class="icon-globe"></a>
+                <a href="#" class="icon-edit"></a>
+              </div>
             </div>
           </div>
           <div class="person">
@@ -92,11 +94,13 @@ new Vue({
               <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
             </div>
             <div class="person_info">
-              <h5>CEO</h5>
               <h3>Vitalik Buterin</h3>
-              <a href="#"><i class="flaticon-social-media-2"></i></a>
-              <a href="#"><i class="flaticon-social-media-1"></i></a>
-              <a href="#"><i class="flaticon-social-media"></i></a>
+              <h5>CEO</h5>
+              <br>
+              <div class="icons">
+                <a href="#" class="icon-globe"></a>
+                <a href="#" class="icon-edit"></a>
+              </div>
             </div>
           </div>
         </div>
@@ -109,16 +113,23 @@ new Vue({
               <span class="event_start">1 Jul 2017</span>
               <span class="event_end">15 Jul 2017</span>
               <div class="event_arrow">
-                <span><i>></i></span>
+                <span><i class="icon-down-open"></i></span>
               </div>
             </div>
             <div class="event_body">
-              <h6>Category:</h6>
-              <p>{{project.category}}</p>
+              <div class="event_info">
+                <h6>Category:</h6>
+                <p>{{project.category}}</p>
 
-              <h6>Industry:</h6>
-              <p>{{project.category}}</p>
+                <h6>Industry:</h6>
+                <p>{{project.category}}</p>
+              </div>
+              <div class="event_descr">
+                <h6>special requirements</h6>
+                <p>Investors from a list of countries are not permitted to participate in the token sale</p>
+              </div>
             </div>
+            
           </div>
           <div class="event">
             <div class="event_head">
@@ -126,15 +137,21 @@ new Vue({
               <span class="event_start">1 Jul 2017</span>
               <span class="event_end">15 Jul 2017</span>
               <div class="event_arrow">
-                <span><i>></i></span>
+                <span><i class="icon-down-open"></i></span>
               </div>
             </div>
             <div class="event_body">
-              <h6>Category:</h6>
-              <p>{{project.category}}</p>
+              <div class="event_info">
+                <h6>Category:</h6>
+                <p>{{project.category}}</p>
 
-              <h6>Industry:</h6>
-              <p>{{project.category}}</p>
+                <h6>Industry:</h6>
+                <p>{{project.category}}</p>
+              </div>
+              <div class="event_descr">
+                <h6>special requirements</h6>
+                <p>Investors from a list of countries are not permitted to participate in the token sale</p>
+              </div>
             </div>
           </div>
         </div>

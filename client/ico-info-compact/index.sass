@@ -5,10 +5,27 @@
 		padding: 4px 6px
 		border-bottom: 1px solid transparent
 		text-decoration: none
+		position: relative
+		color: black
+		font-size: 24px
+		&:after
+			content: ''
+			display: block
+			height: 4px
+			border-radius: 4px
+			width: 100%
+			position: absolute
+			bottom: -2px
+			left: 0
+			background: transparent
+			transition: background .2s
 		&:hover
-			border-bottom: 1px solid blue
+			color: black
+			&:after
+				background: #17a2b8
 	.active
-		border-bottom: 1px solid blue
+		&:after
+			background: #17a2b8
 
 
 
@@ -33,17 +50,44 @@
 .project_actions
 	flex: 0 0 auto
 
+h3
+	font-size: 18px
+h5
+	color: #9d9d9d
+	font-weight: 300
 h6
-	color: grey
+	color: #9d9d9d
 	font-size: 12px
+.btn-primary
+	background: #17a2b8
+	border-color: #17a2b8
+	outline: none
+	&:hover
+		background-color: #1f7886
+		border-color: #1f7886
+.btn-outline-primary
+	color: #17a2b8
+	border-color: #17a2b8
+	&:hover
+		background-color: #17a2b8
+		border-color: #17a2b8
 
+.icons
+	a
+		text-decoration: none
+		color: #555
+		padding: 2px 6px
+		font-size: 32px
+		transition: color .2s
+		&:hover
+			color: #1f7886
 .events
 	.event
 		margin-bottom: 10px
 		.event_head
 			display: flex
 			cursor: pointer
-			background: #ccc
+			background: #ededed
 			padding: 10px
 			.event_type
 				flex: 0 0 200px
@@ -57,17 +101,26 @@ h6
 				span
 					padding: 5px
 				i
-					transform: rotate(-90deg)
+					transform: rotate(0deg)
+					transition: transform .2s
 					display: inline-block
 					font-style: normal
 		.event_body
 			height: 0
 			overflow: hidden
+			display: flex
+			transition: all .2s
+			.event_info
+				flex: 0 0 280px
+				padding: 10px
+			.event_descr
+				flex: 1 0 auto
+				padding: 10px
 	.event.open
 		.event_head
 			.event_arrow
 				i
-					transform: rotate(-270deg)
+					transform: rotate(-180deg)
 		.event_body
 			height: auto
 			overflow: visible
@@ -78,16 +131,23 @@ h6
 	.person
 		flex: 0 0 47%
 		border-radius: 4px
-		border: 1px solid #ccc
+		border: 2px solid #ccc
 		display: flex
 		margin-bottom: 10px
-		padding: 10px
+		padding: 30px
 		.person_img
-			flex: 0 0 120px
+			flex: 0 0 auto
 			padding-right: 10px
 			img
-				max-width: 100%
+				width: 180px
 				border-radius: 100%
 		.person_info
 			padding-left: 20px
 			flex: 1 0 auto
+		.icons
+			margin-left: -0.2em
+			a
+				font-size: 22px
+				padding: 0
+				display: inline-block
+				vertical-align: middle
