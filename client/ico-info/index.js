@@ -145,11 +145,11 @@ new Vue({
                 <h6>Acceptable coins</h6>
                 <p>ETH</p>
 
-                <td>Actually raised</td>
-                <td>-</td>
+                <h6>Actually raised</h6>
+                <p>-</p>
 
-                <td>Actual finish date</td>
-                <td>01.10.2017</td>
+                <h6>Actual finish date</h6>
+                <p>01.10.2017</p>
 
               </div>
               <div class="event_descr">
