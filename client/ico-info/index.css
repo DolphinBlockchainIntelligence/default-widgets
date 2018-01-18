@@ -173,6 +173,9 @@ h6 {
         transition: -webkit-transform .2s;
         transition: transform .2s;
         transition: transform .2s, -webkit-transform .2s;
+        -webkit-transform-origin: 50% 57.2%;
+            -ms-transform-origin: 50% 57.2%;
+                transform-origin: 50% 57.2%;
         display: inline-block;
         font-style: normal; }
   .events .event .event_body {
