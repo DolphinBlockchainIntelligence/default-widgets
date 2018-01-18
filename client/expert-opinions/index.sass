@@ -1,0 +1,245 @@
+
+h3
+	font-size: 18px
+h5
+	color: #9d9d9d
+	font-weight: 300
+h6
+	color: #9d9d9d
+	font-size: 12px
+
+.icons
+	a
+		text-decoration: none
+		color: #555
+		padding: 2px 6px
+		font-size: 32px
+		transition: color .2s
+		@media(max-width: 480px)
+			font-size: 20px
+		&:hover
+			color: #1f7886
+.opinions
+	.opinion
+		margin-bottom: 10px
+		.opinion_head
+			position: relative
+			cursor: pointer
+			background: #ededed
+			padding: 10px 50px 10px 10px
+
+			.opinion_name
+				display: inline-block
+				vertical-align: top
+				font-size: 24px
+				line-height: 44px
+				margin-bottom: 10px
+				min-width: 280px
+				@media(max-width: 350px)
+					min-width: auto
+				&.active
+					padding-right: 32px
+					span
+						position: relative
+						&:after
+							content: ''
+							position: absolute
+							width: 24px
+							height: 24px
+							top: 3px
+							left: auto
+							right: -30px
+							background-image: url(img/conf.png)
+							background-repeat: repeat-x
+							background-position: left top
+			.opinion_arrow
+				position: absolute
+				right: 16px
+				top: 22px
+				span
+					padding: 5px
+				i
+					transform: rotate(0deg)
+					transition: transform .2s
+					display: inline-block
+					font-style: normal
+		.opinion_body
+			height: 0
+			overflow: hidden
+			display: block
+			transition: all .2s
+			.opinion_body_wrap
+				display: table
+				width: 100%
+				@media(max-width: 979px)
+					display: block
+			p
+				font-size: 24px
+				@media(max-width: 480px)
+					font-size: 16px
+			.opinion_info
+				display: table-cell
+				vertical-align: top
+				width: 490px
+				padding: 10px
+				@media(max-width: 979px)
+					display: block
+					width: auto
+			.person
+				display: table
+				.person_img
+					display: table-cell
+					vertical-align: top
+					padding: 0 10px
+					img
+						width: 80px
+						border-radius: 100%
+					.icons
+						a
+							font-size: 22px
+							padding: 2px
+				.person_info
+					padding: 0 10px
+					display: table-cell
+					vertical-align: top
+					ul
+						list-style: none
+						padding: 0
+						li
+							a
+								color: #429eae
+								font-size: 24px
+								text-decoration: underline
+			.opinion_descr
+				display: table-cell
+				vertical-align: top
+				padding: 10px
+				@media(max-width: 979px)
+					display: block
+
+	.opinion.open
+
+		.opinion_head
+			.opinion_arrow
+				i
+					transform: rotate(-180deg)
+		.opinion_body
+			height: auto
+			overflow: visible
+.count
+	display: inline-block
+	vertical-align: middle
+	margin: 5px 8px
+	.count_info
+		display: inline-block
+		vertical-align: top
+		padding: 0 4px
+		font-size: 24px
+		line-height: 24px
+		color: #363636
+	.count_marker
+		display: inline-block
+		vertical-align: top
+		position: relative
+		width: 68px
+		height: 44px
+
+	.count_marker_empty
+		position: absolute
+		top: 0
+		left: 0
+		height: 24px
+		width: 100%
+		background-image: url(img/mark_e.png)
+		background-repeat: repeat-x
+		background-position: left top
+
+	.count_marker_full
+		position: absolute
+		top: 0
+		left: 0
+		height: 24px
+		width: 0
+		background-image: url(img/mark_f.png)
+		background-repeat: repeat-x
+		background-position: left top
+	.count_text
+		position: absolute
+		top: 24px
+		left: 0
+		width: 100%
+		text-align: center
+		color: #666161
+		font-size: 17px
+
+.rating
+	display: inline-block
+	vertical-align: middle
+	margin: 5px 20px
+	.rating_marker
+		display: inline-block
+		vertical-align: top
+		position: relative
+		width: 150px
+		height: 44px
+
+	.rating_marker_empty
+		position: absolute
+		top: 0
+		left: 0
+		height: 24px
+		width: 100%
+		background-image: url(img/star_e.png)
+		background-repeat: repeat-x
+		background-position: left top
+
+	.rating_marker_full
+		position: absolute
+		top: 0
+		left: 0
+		height: 24px
+		width: 0
+		background-image: url(img/star_f.png)
+		background-repeat: repeat-x
+		background-position: left top
+	.rating_text
+		position: absolute
+		top: 24px
+		left: 0
+		width: 100%
+		text-align: center
+		color: #429eae
+		font-size: 17px
+// icons
+.icon-website:before
+	content: '\e800'
+.icon-edit:before
+	content: '\e801'
+.icon-down-open:before
+	content: '\e802'
+.icon-left-open:before
+	content: '\e803'
+.icon-right-open:before
+	content: '\e804'
+.icon-up-open:before
+	content: '\e805'
+.icon-twitter:before
+	content: '\f099'
+.icon-facebook:before
+	content: '\f09a'
+.icon-github:before
+	content: '\f09b'
+.icon-mail-alt:before
+	content: '\f0e0'
+.icon-linkedin:before
+	content: '\f0e1'
+.icon-whitepaper:before
+	content: '\f0f6'
+.icon-telegram-chat:before,
+.icon-telegram:before
+	content: '\f2c6'
+.icon-coinmarketcap:before
+	content: '\e80a'
+.icon-bitcointalk:before,
+.icon-bitcointalk-forum-topic
+	content: '\e806'
