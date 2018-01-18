@@ -7,7 +7,7 @@ h5 {
 
 h6 {
   color: #9d9d9d;
-  font-size: 12px; }
+  font-size: 16px; }
 
 .icons a {
   text-decoration: none;
@@ -27,7 +27,7 @@ h6 {
     position: relative;
     cursor: pointer;
     background: #ededed;
-    padding: 10px 50px 10px 10px; }
+    padding: 16px 50px 10px 22px; }
     .opinions .opinion .opinion_head .opinion_name {
       display: inline-block;
       vertical-align: top;
@@ -76,7 +76,9 @@ h6 {
         .opinions .opinion .opinion_body .opinion_body_wrap {
           display: block; } }
     .opinions .opinion .opinion_body p {
-      font-size: 24px; }
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 30px; }
       @media (max-width: 480px) {
         .opinions .opinion .opinion_body p {
           font-size: 16px; } }
@@ -84,7 +86,7 @@ h6 {
       display: table-cell;
       vertical-align: top;
       width: 490px;
-      padding: 10px; }
+      padding: 14px; }
       @media (max-width: 979px) {
         .opinions .opinion .opinion_body .opinion_info {
           display: block;
@@ -94,10 +96,11 @@ h6 {
       .opinions .opinion .opinion_body .person .person_img {
         display: table-cell;
         vertical-align: top;
-        padding: 0 10px; }
+        padding: 20px 10px 0; }
         .opinions .opinion .opinion_body .person .person_img img {
-          width: 80px;
-          border-radius: 100%; }
+          width: 92px;
+          border-radius: 100%;
+          margin-bottom: 24px; }
         .opinions .opinion .opinion_body .person .person_img .icons a {
           font-size: 22px;
           padding: 2px; }
@@ -107,15 +110,17 @@ h6 {
         vertical-align: top; }
         .opinions .opinion .opinion_body .person .person_info ul {
           list-style: none;
-          padding: 0; }
+          padding: 0;
+          margin-bottom: 10px; }
           .opinions .opinion .opinion_body .person .person_info ul li a {
             color: #429eae;
             font-size: 24px;
+            line-height: 28px;
             text-decoration: underline; }
     .opinions .opinion .opinion_body .opinion_descr {
       display: table-cell;
       vertical-align: top;
-      padding: 10px; }
+      padding: 14px; }
       @media (max-width: 979px) {
         .opinions .opinion .opinion_body .opinion_descr {
           display: block; } }
@@ -164,7 +169,7 @@ h6 {
     background-position: left top; }
   .count .count_text {
     position: absolute;
-    top: 24px;
+    top: 30px;
     left: 0;
     width: 100%;
     text-align: center;
@@ -201,12 +206,12 @@ h6 {
     background-position: left top; }
   .rating .rating_text {
     position: absolute;
-    top: 24px;
+    top: 28px;
     left: 0;
     width: 100%;
     text-align: center;
     color: #429eae;
-    font-size: 17px; }
+    font-size: 14px; }
 
 .icon-website:before {
   content: '\e800'; }
