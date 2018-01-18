@@ -20,12 +20,14 @@
       content: '';
       display: block;
       height: 4px;
-      border-radius: 4px;
+      -webkit-border-radius: 4px;
+              border-radius: 4px;
       width: 100%;
       position: absolute;
       bottom: -2px;
       left: 0;
       background: transparent;
+      -webkit-transition: background .2s;
       transition: background .2s; }
     .tabs a:hover {
       color: black; }
@@ -42,18 +44,37 @@
       display: block; }
 
 .project_wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 .project_info {
-  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex; }
 
 .project_info_main, .project_info_descr {
-  flex: 0 0 50%; }
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%; }
 
 .project_actions {
-  flex: 0 0 auto; }
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; }
 
 h3 {
   font-size: 18px; }
@@ -90,6 +111,7 @@ h6 {
   color: #555;
   padding: 2px 6px;
   font-size: 32px;
+  -webkit-transition: color .2s;
   transition: color .2s; }
   @media (max-width: 480px) {
     .icons a {
@@ -100,81 +122,144 @@ h6 {
 .events .event {
   margin-bottom: 10px; }
   .events .event .event_head {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     cursor: pointer;
     background: #ededed;
     padding: 10px; }
     @media (max-width: 420px) {
       .events .event .event_head {
-        justify-content: space-between; } }
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+                justify-content: space-between; } }
     .events .event .event_head > span {
       font-size: 18px; }
       @media (max-width: 420px) {
         .events .event .event_head > span {
           font-size: 14px; } }
     .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
-      flex: 0 0 110px; }
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 110px;
+          -ms-flex: 0 0 110px;
+              flex: 0 0 110px; }
       @media (max-width: 420px) {
         .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
-          flex: 0 0 auto; } }
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+              -ms-flex: 0 0 auto;
+                  flex: 0 0 auto; } }
     .events .event .event_head .event_arrow {
-      flex: 1 0 auto;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 auto;
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
       text-align: right; }
       @media (max-width: 420px) {
         .events .event .event_head .event_arrow {
-          flex: 0 0 auto; } }
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 auto;
+              -ms-flex: 0 0 auto;
+                  flex: 0 0 auto; } }
       .events .event .event_head .event_arrow span {
         padding: 5px; }
       .events .event .event_head .event_arrow i {
-        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transition: -webkit-transform .2s;
+        transition: -webkit-transform .2s;
         transition: transform .2s;
+        transition: transform .2s, -webkit-transform .2s;
         display: inline-block;
         font-style: normal; }
   .events .event .event_body {
     height: 0;
     overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-transition: all .2s;
     transition: all .2s;
     max-width: 100%;
     width: 100%; }
     @media (max-width: 420px) {
       .events .event .event_body {
-        flex-wrap: wrap; } }
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap; } }
     .events .event .event_body .event_info {
-      flex: 0 0 280px;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 280px;
+          -ms-flex: 0 0 280px;
+              flex: 0 0 280px;
       padding: 10px; }
       @media (max-width: 600px) {
         .events .event .event_body .event_info {
-          flex: 0 0 200px; } }
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 200px;
+              -ms-flex: 0 0 200px;
+                  flex: 0 0 200px; } }
       @media (max-width: 420px) {
         .events .event .event_body .event_info {
-          flex: 0 0 100%; } }
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+                  flex: 0 0 100%; } }
     .events .event .event_body .event_descr {
-      flex: 0 1 auto;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 1 auto;
+          -ms-flex: 0 1 auto;
+              flex: 0 1 auto;
       padding: 10px; }
       @media (max-width: 420px) {
         .events .event .event_body .event_descr {
-          flex: 0 0 100%; } }
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+                  flex: 0 0 100%; } }
 
 .events .event.open .event_head .event_arrow i {
-  transform: rotate(-180deg); }
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg); }
 
 .events .event.open .event_body {
   height: auto;
   overflow: visible; }
 
 .team {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   padding: 10px; }
   .team .person {
     margin-bottom: 10px;
-    flex: 0 0 49%;
-    border-radius: 4px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 49%;
+        -ms-flex: 0 0 49%;
+            flex: 0 0 49%;
+    -webkit-border-radius: 4px;
+            border-radius: 4px;
     border: 2px solid #ccc;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     padding: 30px; }
     @media (max-width: 920px) {
       .team .person {
@@ -184,24 +269,37 @@ h6 {
         text-align: center; } }
     @media (max-width: 420px) {
       .team .person {
-        flex: 0 0 100%; } }
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%; } }
     .team .person .person_img {
-      flex: 0 0 auto;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto;
       padding-right: 10px; }
       @media (max-width: 640px) {
         .team .person .person_img {
-          flex: 1 0 100%;
+          -webkit-box-flex: 1;
+          -webkit-flex: 1 0 100%;
+              -ms-flex: 1 0 100%;
+                  flex: 1 0 100%;
           margin-bottom: 12px;
           padding: 0; } }
       .team .person .person_img img {
         width: 180px;
-        border-radius: 100%; }
+        -webkit-border-radius: 100%;
+                border-radius: 100%; }
         @media (max-width: 920px) {
           .team .person .person_img img {
             width: 100px; } }
     .team .person .person_info {
       padding-left: 20px;
-      flex: 1 0 auto; }
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 auto;
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto; }
       @media (max-width: 640px) {
         .team .person .person_info {
           padding: 0; } }

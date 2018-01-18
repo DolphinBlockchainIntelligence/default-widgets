@@ -16,22 +16,17 @@ new Vue({
           <div class="project_info">
             <div class="project_info_main">
               <h6>Category</h6>
-              <p>{{project.category}}</p>
-
+              <p>{{project.category | ifEmpty}}}</p>
               <h6>Industry</h6>
-              <p>{{project.industry}}</p>
-
+              <p>{{project.industry | ifEmpty}}</p>
               <h6>Keywords</h6>
               <p>
                 <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
               </p>
-
               <h6>The formal business entity</h6>
               <p>{{project.formal | ifEmpty}}</p>
-
               <h6>Project homeland</h6>
               <p>{{project.homeland | ifEmpty}}</p>
-
               <h6>Project platform</h6>
               <p>{{project.coins | ifEmpty}}</p>
             </div>
@@ -44,7 +39,6 @@ new Vue({
             <button type="button" class="btn btn-primary">Digest</button>
             <button type="button" class="btn btn-outline-primary">Basic</button>
             <button type="button" class="btn btn-outline-primary">Detailed</button>
-            
             <div class="icons" v-if="projectComputed">
               <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
             </div>
@@ -71,17 +65,14 @@ new Vue({
         <p>{{project.tokenDescription | ifEmpty}}</p>
       </div>
       <div class="tabs_content_wrap" id="3">
-        <h6>Legal Entity Name</h6>
-        <p>Dolphin blockchain intelligence</p>
-
-        <h6>Legal Entity Location</h6>
-        <p>Netherlands</p>
-
-        <h6>Legal Entity ID</h6>
-        <p>77164038209</p>
-
-        <h6>Date of registration</h6>
-        <p>01.10.2017</p>
+      <h6>Legal Entity Name</h6>
+      <p>-</p>
+      <h6>Legal Entity Location</h6>
+      <p>-</p>
+      <h6>Legal Entity ID</h6>
+      <p>-</p>
+      <h6>Date of registration</h6>
+      <p>-</p>
       </div>
       <div class="tabs_content_wrap" id="4">
         <div class="team">
@@ -132,30 +123,22 @@ new Vue({
               <div class="event_info">
                 <h6>Softcap</h6>
                 <p>{{project.category}}</p>
-
                 <h6>Token to sell</h6>
                 <p>500000</p>
-
                 <h6>Hardcap</h6>
                 <p>{{project.category}}</p>
-
                 <h6>Soft/hardcap coin</h6>
                 <p>{{project.category}}</p>
-
                 <h6>Acceptable coins</h6>
                 <p>ETH</p>
-
                 <h6>Actually raised</h6>
                 <p>-</p>
-
                 <h6>Actual finish date</h6>
                 <p>01.10.2017</p>
-
               </div>
               <div class="event_descr">
                 <h6>special requirements</h6>
                 <p>Our token sale fits KYC/AML procedures.</p>
-
                 <p>Investors from list of country are not permitted to participate in the token sale Token sale participants will be required to register with an email No special requirements or restrictions. The sale is open to everyone. Unsure or undecided</p>
                 <p>Other:</p>
               </div>
@@ -174,31 +157,23 @@ new Vue({
             <div class="event_body">
               <div class="event_info">
                 <h6>Softcap</h6>
-                <p>{{project.category}}</p>
-
+                <p>{{project.category | ifEmpty}}</p>
                 <h6>Token to sell</h6>
                 <p>500000</p>
-
                 <h6>Hardcap</h6>
-                <p>{{project.category}}</p>
-
+                <p>{{project.category | ifEmpty}}</p>
                 <h6>Soft/hardcap coin</h6>
-                <p>{{project.category}}</p>
-
+                <p>{{project.category | ifEmpty}}</p>
                 <h6>Acceptable coins</h6>
                 <p>ETH</p>
-
                 <td>Actually raised</td>
                 <td>-</td>
-
                 <td>Actual finish date</td>
                 <td>01.10.2017</td>
-
               </div>
               <div class="event_descr">
                 <h6>special requirements</h6>
                 <p>Our token sale fits KYC/AML procedures.</p>
-
                 <p>Investors from list of country are not permitted to participate in the token sale Token sale participants will be required to register with an email No special requirements or restrictions. The sale is open to everyone. Unsure or undecided</p>
                 <p>Other:</p>
               </div>
