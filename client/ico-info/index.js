@@ -16,7 +16,7 @@ new Vue({
           <div class="project_info">
             <div class="project_info_main">
               <h6>Category</h6>
-              <p>{{project.category | ifEmpty}}}</p>
+              <p>{{project.category | ifEmpty}}</p>
               <h6>Industry</h6>
               <p>{{project.industry | ifEmpty}}</p>
               <h6>Keywords</h6>
