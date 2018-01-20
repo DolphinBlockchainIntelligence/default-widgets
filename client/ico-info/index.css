@@ -88,8 +88,8 @@ h6 {
   font-size: 12px; }
 
 .btn {
-  padding: 10px 40px;
-  margin-right: 30px; }
+  padding: 8px 14px;
+  margin-right: 10px; }
 
 .btn-primary {
   background: #17a2b8;
@@ -109,8 +109,8 @@ h6 {
 .icons a {
   text-decoration: none;
   color: #555;
-  padding: 2px 6px;
-  font-size: 32px;
+  padding: 2px;
+  font-size: 26px;
   -webkit-transition: color .2s;
   transition: color .2s; }
   @media (max-width: 480px) {

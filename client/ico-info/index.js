@@ -25,12 +25,12 @@ new Vue({
               </p>
               <h6>The formal business entity</h6>
               <p>{{project.formal | ifEmpty}}</p>
+            </div>
+            <div class="project_info_descr">
               <h6>Project homeland</h6>
               <p>{{project.homeland | ifEmpty}}</p>
               <h6>Project platform</h6>
               <p>{{project.coins | ifEmpty}}</p>
-            </div>
-            <div class="project_info_descr">
               <h6>Description</h6>
               <p>{{project.tokenDescription | ifEmpty}}</p>
             </div>
