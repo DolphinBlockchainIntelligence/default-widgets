@@ -51,7 +51,7 @@ new Vue({
         <h6>Name of the token</h6>
         <p>{{project.tokenName | ifEmpty}}</p>
 
-        <h6>Token's ticker code</h6>
+        <h6>'Token's ticker code</h6>
         <p>{{project.symbol | ifEmpty}}</p>
 
         <h6>Project platform</h6>
@@ -67,7 +67,7 @@ new Vue({
         <p>{{project.distribution | ifEmpty}}</p>
 
         <h6>Extra emission</h6>
-        <p>{{project.extraemission | ifEmpty}}</p>
+        <p v-for="extraEm in project.extraemission">{{extraEm}}</p>
       </div>
       <div class="tabs_content_wrap" id="3">
         <h6>Legal Entity Name</h6>
@@ -80,37 +80,22 @@ new Vue({
         <p>{{project.legalid | ifEmpty}}</p>
 
         <h6>Date of registration</h6>
-        <p>-</p>
+        <p>{{project.legaldate}}</p>
       </div>
       <div class="tabs_content_wrap" id="4">
-        <div class="team">
+        <div class="team" v-for="person in project.team">
           <div class="person">
             <div class="person_img">
-              <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
+              <img :src="person.photo">
             </div>
             <div class="person_info">
-              <h3>Vitalik Buterin</h3>
-              <h5>CEO</h5>
+              <h3>{{person.name}}</h3>
+              <h5>{{person.role}}</h5>
               <br>
               <div class="icons">
-                <a href="#" class="icon-facebook"></a>
-                <a href="#" class="icon-twitter"></a>
-                <a href="#" class="icon-linkedin"></a>
-              </div>
-            </div>
-          </div>
-          <div class="person">
-            <div class="person_img">
-              <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
-            </div>
-            <div class="person_info">
-              <h3>Vitalik Buterin</h3>
-              <h5>CEO</h5>
-              <br>
-              <div class="icons">
-                <a href="#" class="icon-facebook"></a>
-                <a href="#" class="icon-twitter"></a>
-                <a href="#" class="icon-linkedin"></a>
+                <a :href="person.facebook" class="icon-facebook" target="_blank"></a>
+                <a :href="person.twitter" class="icon-twitter" target="_blank"></a>
+                <a :href="person.linkedin" class="icon-linkedin" target="_blank"></a>
               </div>
             </div>
           </div>
@@ -153,7 +138,7 @@ new Vue({
               </div>
               <div class="event_descr">
                 <h6>special requirements</h6>
-                <p>{{sale.requirements}}</p>
+                <p v-for="requirement in sale.requirements">{{requirement}}</p>
               </div>
             </div>
           </div>
@@ -204,9 +189,19 @@ new Vue({
     projectComputed: function() {
       try {
         var projectComputed = this.project
+
         projectComputed.links.forEach(function(link){
           link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-')
         })
+
+        projectComputed.sales.forEach(function(sale){
+          sale.start = moment(sale.start).format('D MMM YYYY')
+          sale.end = moment(sale.end).format('D MMM YYYY')
+          sale.real = moment(sale.real).format('D MMM YYYY')
+        })
+
+        projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
+
         return projectComputed
       } catch(err) {}
     }

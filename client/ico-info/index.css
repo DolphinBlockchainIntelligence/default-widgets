@@ -140,11 +140,14 @@ h6 {
       @media (max-width: 420px) {
         .events .event .event_head > span {
           font-size: 14px; } }
+    .events .event .event_head .event_end, .events .event .event_head .event_start {
+      padding-left: 20px; }
     .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 110px;
           -ms-flex: 0 0 110px;
-              flex: 0 0 110px; }
+              flex: 0 0 110px;
+      white-space: nowrap; }
       @media (max-width: 420px) {
         .events .event .event_head .event_type, .events .event .event_head .event_start, .events .event .event_head .event_end {
           -webkit-box-flex: 0;
