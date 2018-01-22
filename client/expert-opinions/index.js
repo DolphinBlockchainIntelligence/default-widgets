@@ -1,5 +1,6 @@
 new Vue({
   el: '#vue-container',
+  
   template:
   `
   <div>
@@ -7,15 +8,12 @@ new Vue({
       <div class="opinion open">
         <div class="opinion_head">
           <div class="opinion_name active"><span>Timothy Papandopolus</span></div>
-
             <div class="rating">
               <div class="rating_marker">
-                <div class="rating_marker_empty"></div>
-                <div class="rating_marker_full" style="width: 20%"></div>
-                <div class="rating_text">expert rating</div>
+                <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="legal"></star-rating>
+                <div class="rating_text">.rating_text</div>
               </div>
             </div>
-
             <div class="count">
               <div class="count_info">3</div>
               <div class="count_marker">
@@ -107,9 +105,8 @@ new Vue({
 
             <div class="rating">
               <div class="rating_marker">
-                <div class="rating_marker_empty"></div>
-                <div class="rating_marker_full" style="width: 20%"></div>
-                <div class="rating_text">expert rating</div>
+                <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="legal"></star-rating>
+                <div class="rating_text">.rating_text</div>
               </div>
             </div>
 
@@ -200,12 +197,24 @@ new Vue({
     </div>
   </div>
   `,
+
   data: function data() {
+
     return {
+      legal: 0,
       project: {}
     }
+    
+  },
+  components: {
+    // <my-component> will only be available in parent's template
+    'star-rating': VueStarRating.default
+    // Vue.component('star-rating', VueStarRating.default),
   },
   mounted () {
+
+    
+
     var getParameterByName = function(name, url) {
       if (!url) url = window.location.href
       name = name.replace(/[\[\]]/g, '\\$&')
@@ -225,8 +234,8 @@ new Vue({
       console.log(err)
     })
 
-    $('.opinion_head').on('click', function(){
-      $(this).parent().toggleClass('open')
+    $(document).on('click', '.opinion_arrow', function(){
+      $(this).parents('.opinion').toggleClass('open')
     })
   },
   computed: {
