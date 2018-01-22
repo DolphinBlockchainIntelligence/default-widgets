@@ -51,7 +51,7 @@ new Vue({
         <h6>Name of the token</h6>
         <p>{{project.tokenName | ifEmpty}}</p>
 
-        <h6>'Token's ticker code</h6>
+        <h6>Token's ticker code</h6>
         <p>{{project.symbol | ifEmpty}}</p>
 
         <h6>Project platform</h6>
@@ -86,7 +86,7 @@ new Vue({
         <div class="team" v-for="person in project.team">
           <div class="person">
             <div class="person_img">
-              <img :src="person.photo">
+              <img :src="'/base/upload/'+person.photo">
             </div>
             <div class="person_info">
               <h3>{{person.name}}</h3>
@@ -114,27 +114,40 @@ new Vue({
             </div>
             <div class="event_body">
               <div class="event_info">
-                <h6>Softcap</h6>
-                <p>{{sale.softCap}}</p>
-                <h6>Token to sell</h6>
-                <p>{{sale.tosell}}</p>
-                <h6>Hardcap</h6>
-                <p>{{sale.hardCap}}</p>
-                <!-- <h6>Soft/hardcap coin</h6>
-                <p>{{project.category}}</p> -->
-                <h6>Acceptable coins</h6>
-                <p>
-                  <span class="badge badge-pill badge-info" v-for="coin in sale.acceptable">{{coin}}</span>
-                </p>
-                <h6>Actually raised</h6>
-                <p>{{sale.raised}}</p>
-                <h6>Actual finish date</h6>
-                <p>{{sale.real}}</p>
-
-                <h6>ERC20 token address</h6>
-                <p>{{sale.erc20addr}}</p>
-                <h6>Average price</h6>
-                <p>{{sale.course}} BTC</p>
+                <div v-if="sale.tosell">
+                  <h6>Token to sell</h6>
+                  <p>{{sale.tosell}}</p>
+                </div>
+                <div v-if="sale.softCap">
+                  <h6>Softcap</h6>
+                  <p>{{sale.softCap}} {{sale.caps}}</p>
+                </div>
+                <div v-if="sale.hardCap">
+                  <h6>Hardcap</h6>
+                  <p>{{sale.hardCap}} {{sale.caps}}</p>
+                </div>
+                <div v-if="sale.raised">
+                  <h6>Actually raised</h6>
+                  <p>{{sale.raised}}</p>
+                </div>
+                <div v-if="sale.real">
+                  <h6>Actual finish date</h6>
+                  <p>{{sale.real}}</p>
+                </div>
+                <div v-if="sale.acceptable[0]">
+                  <h6>Acceptable coins</h6>
+                  <p>
+                    <span class="badge badge-pill badge-info" v-for="coin in sale.acceptable">{{coin}}</span>
+                  </p>
+                </div>
+                <div v-if="sale.erc20addr">
+                  <h6>ERC20 token address</h6>
+                  <p>{{sale.erc20addr}}</p>
+                </div>
+                <div v-if="sale.course">
+                  <h6>Average price</h6>
+                  <p>{{sale.course}} BTC</p>
+                </div>
               </div>
               <div class="event_descr">
                 <h6>special requirements</h6>
