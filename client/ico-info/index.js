@@ -15,87 +15,125 @@ new Vue({
         <div class="project_wrap">
           <div class="project_info">
             <div class="project_info_main">
-              <h6>Category</h6>
-              <p>{{project.category | ifEmpty}}</p>
-              <h6>Industry</h6>
-              <p>{{project.industry | ifEmpty}}</p>
-              <h6>Keywords</h6>
-              <p>
-                <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
-              </p>
-              <h6>The formal business entity</h6>
-              <p>{{project.formal | ifEmpty}}</p>
-              <h6>Project homeland</h6>
-              <p>{{project.homeland | ifEmpty}}</p>
+              <div v-if="project.category">
+                <h6>Category</h6>
+                <p>{{project.category}}</p>
+              </div>
+              <div v-if="project.industry">
+                <h6>Industry</h6>
+                <p>{{project.industry}}</p>
+              </div>
+              <div v-if="project.keywords">
+                <h6>Keywords</h6>
+                <p>
+                  <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
+                </p>
+              </div>
+              <div v-if="project.hashtags">
+                <h6>Hashtags</h6>
+                <p>
+                  <span class="badge badge-pill badge-info" v-for="hashtag in project.hashtags">{{hashtag}}</span>
+                </p>
+              </div>
+              <div v-if="project.formal">
+                <h6>The formal business entity</h6>
+                <p>{{project.formal}}</p>
+              </div>
+              <div v-if="project.homeland">
+                <h6>Project homeland</h6>
+                <p>{{project.homeland}}</p>
+              </div>
             </div>
             <div class="project_info_descr">
-              <h6>Project platform</h6>
-              <p>{{project.platform | ifEmpty}}</p>
-              <h6>Project status</h6>
-              <p>{{project.status | ifEmpty}}</p>
-              <h6>Description</h6>
-              <p>{{project.description | ifEmpty}}</p>
+              <div v-if="project.platform">
+                <h6>Project platform</h6>
+                <p>{{project.platform}}</p>
+              </div>
+              <div v-if="project.status">
+                <h6>Project status</h6>
+                <p>{{project.status}}</p>
+              </div>
+              <div v-if="project.description">
+                <h6>Description</h6>
+                <p>{{project.description}}</p>
+              </div>
             </div>
           </div>
           <div class="project_actions">
-            <button type="button" class="btn btn-primary">Digest</button>
-            <button type="button" class="btn btn-outline-primary">Basic</button>
-            <button type="button" class="btn btn-outline-primary">Detailed</button>
-            <div class="icons" v-if="projectComputed">
+            <a :href="'/base/upload/'+project.digestReport" class="btn btn-primary" v-if="project.digestReport" target="_blank">Digest</a>
+            <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Digest</a>
+            <a :href="'/base/upload/'+project.basicReport" class="btn btn-primary" v-if="project.basicReport" target="_blank">Basic</a>
+            <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Basic</a>
+            <a :href="'/base/upload/'+project.detailedReport" class="btn btn-primary" v-if="project.detailedReport" target="_blank">Detailed</a>
+            <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Detailed</a>
+            <div class="icons" v-if="projectComputed.links">
               <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
             </div>
           </div>
         </div>
       </div>
       <div class="tabs_content_wrap" id="2">
-        <h6>Name of the token</h6>
-        <p>{{project.tokenName | ifEmpty}}</p>
-
-        <h6>Token's ticker code</h6>
-        <p>{{project.symbol | ifEmpty}}</p>
-
-        <h6>Project platform</h6>
-        <p>{{project.tokenPlatform | ifEmpty}}</p>
-
-        <h6>Your token gives the right</h6>
-        <p>{{project.tokenDescription | ifEmpty}}</p>
-
-        <h6>Total emission</h6>
-        <p>{{project.emission | ifEmpty}}</p>
-
-        <h6>Distribution of tokens</h6>
-        <p>{{project.distribution | ifEmpty}}</p>
-
-        <h6>Extra emission</h6>
-        <p v-for="extraEm in project.extraemission">{{extraEm}}</p>
+        <div v-if="project.tokenName">
+          <h6>Name of the token</h6>
+          <p>{{project.tokenName}}</p>
+        </div>
+        <div v-if="project.symbol">
+          <h6>Token's ticker code</h6>
+          <p>{{project.symbol}}</p>
+        </div>
+        <div v-if="project.tokenPlatform">
+          <h6>Project platform</h6>
+          <p>{{project.tokenPlatform}}</p>
+        </div>
+        <div v-if="project.tokenDescription">
+          <h6>Your token gives the right</h6>
+          <p>{{project.tokenDescription}}</p>
+        </div>
+        <div v-if="project.emission">
+          <h6>Total emission</h6>
+          <p>{{project.emission}}</p>
+        </div>
+        <div v-if="project.distribution">
+          <h6>Distribution of tokens</h6>
+          <p>{{project.distribution}}</p>
+        </div>
+        <div v-if="project.extraemission">
+          <h6>Extra emission</h6>
+          <p v-for="extraEm in project.extraemission">{{extraEm}}</p>
+        </div>
       </div>
       <div class="tabs_content_wrap" id="3">
-        <h6>Legal Entity Name</h6>
-        <p>{{project.legalname | ifEmpty}}</p>
-
-        <h6>Legal Entity Location</h6>
-        <p>{{project.legallocation | ifEmpty}}</p>
-
-        <h6>Legal Entity ID</h6>
-        <p>{{project.legalid | ifEmpty}}</p>
-
-        <h6>Date of registration</h6>
-        <p>{{project.legaldate}}</p>
+        <div v-if="project.legalname">
+          <h6>Legal Entity Name</h6>
+          <p>{{project.legalname}}</p>
+        </div>
+        <div v-if="project.legallocation">
+          <h6>Legal Entity Location</h6>
+          <p>{{project.legallocation}}</p>
+        </div>
+        <div v-if="project.legalid">
+          <h6>Legal Entity ID</h6>
+          <p>{{project.legalid}}</p>
+        </div>
+        <div v-if="project.legaldate">
+          <h6>Date of registration</h6>
+          <p>{{project.legaldate}}</p>
+        </div>
       </div>
-      <div class="tabs_content_wrap" id="4">
+      <div class="tabs_content_wrap" id="4" v-if="project.team">
         <div class="team" v-for="person in project.team">
           <div class="person">
-            <div class="person_img">
+            <div class="person_img" v-if="person.photo">
               <img :src="'/base/upload/'+person.photo">
             </div>
             <div class="person_info">
-              <h3>{{person.name}}</h3>
-              <h5>{{person.role}}</h5>
+              <h3 v-if="person.name">{{person.name}}</h3>
+              <h5 v-if="person.role">{{person.role}}</h5>
               <br>
               <div class="icons">
-                <a :href="person.facebook" class="icon-facebook" target="_blank"></a>
-                <a :href="person.twitter" class="icon-twitter" target="_blank"></a>
-                <a :href="person.linkedin" class="icon-linkedin" target="_blank"></a>
+                <a :href="person.facebook" class="icon-facebook" target="_blank" v-if="person.facebook"></a>
+                <a :href="person.twitter" class="icon-twitter" target="_blank" v-if="person.twitter"></a>
+                <a :href="person.linkedin" class="icon-linkedin" target="_blank" v-if="person.linkedin"></a>
               </div>
             </div>
           </div>
@@ -105,9 +143,9 @@ new Vue({
         <div class="events" v-for="sale in project.sales">
           <div class="event">
             <div class="event_head">
-              <span class="event_type">{{sale.type}}</span>
-              <span class="event_start">{{sale.start}}</span>
-              <span class="event_end">{{sale.end}}</span>
+              <span class="event_type" v-if="sale.type">{{sale.type}}</span>
+              <span class="event_start" v-if="sale.start">{{sale.start}}</span>
+              <span class="event_end" v-if="sale.end">{{sale.end}}</span>
               <div class="event_arrow">
                 <span><i class="icon-down-open"></i></span>
               </div>
@@ -134,7 +172,7 @@ new Vue({
                   <h6>Actual finish date</h6>
                   <p>{{sale.real}}</p>
                 </div>
-                <div v-if="sale.acceptable[0]">
+                <div v-if="sale.acceptable">
                   <h6>Acceptable coins</h6>
                   <p>
                     <span class="badge badge-pill badge-info" v-for="coin in sale.acceptable">{{coin}}</span>
@@ -149,7 +187,7 @@ new Vue({
                   <p>{{sale.course}} BTC</p>
                 </div>
               </div>
-              <div class="event_descr">
+              <div class="event_descr" v-if="sale.requirements">
                 <h6>special requirements</h6>
                 <p v-for="requirement in sale.requirements">{{requirement}}</p>
               </div>
@@ -184,7 +222,7 @@ new Vue({
     }, (err) => {
       console.log(err)
     })
-    $('.tabs a').on('click', function(e){
+    $(document).on('click', '.tabs a', function(e){
       e.preventDefault()
       var target = $(this).attr('href')
       $('.tabs a').removeClass('active')
@@ -200,12 +238,14 @@ new Vue({
   },
   computed: {
     projectComputed: function() {
-      try {
+      // try {
         var projectComputed = this.project
 
-        projectComputed.links.forEach(function(link){
-          link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-')
-        })
+        if (projectComputed.links && projectComputed.links != []) {
+          projectComputed.links.forEach(function(link){
+            link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-')
+          })
+        }
 
         projectComputed.sales.forEach(function(sale){
           sale.start = moment(sale.start).format('D MMM YYYY')
@@ -216,7 +256,7 @@ new Vue({
         projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
 
         return projectComputed
-      } catch(err) {}
+      // } catch(err) {}
     }
   },
   methods: {
