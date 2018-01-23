@@ -7,7 +7,7 @@ new Vue({
       <a href="#1" v-if="projectComputed.hasProject" class="active">Project</a>
       <a href="#2" v-if="projectComputed.hasToken">Token</a>
       <a href="#3" v-if="projectComputed.hasLegal">Legal</a>
-      <a href="#4" v-if="projectComputed.team">Team</a>
+      <a href="#4" v-if="projectComputed.hasTeam">Team</a>
       <a href="#5" v-if="projectComputed.sales">Events</a>
     </div>
     <div class="tabs_content">
