@@ -5,61 +5,69 @@ new Vue({
   `
   <div>
     <div class="opinions">
-      <div class="opinion open">
+      <div class="opinion" v-for="opinion in project.rating">
         <div class="opinion_head">
-          <div class="opinion_name active"><span>Timothy Papandopolus</span></div>
+          <div class="opinion_name active"><span>{{opinion.name}}</span></div>
             <div class="rating">
               <div class="rating_marker">
                 <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="legal"></star-rating>
-                <div class="rating_text">.rating_text</div>
+                <div class="rating_text">expert rating</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.idea}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.idea + '0%'"></div>
+                <div class="count_text">idea</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.team}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.team + '0%'"></div>
+                <div class="count_text">team</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.busmodel}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.busmodel + '0%'"></div>
+                <div class="count_text">busmodel</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.market}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.market + '0%'"></div>
+                <div class="count_text">market</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.tech}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.tech + '0%'"></div>
+                <div class="count_text">tech</div>
               </div>
             </div>
             <div class="count">
-              <div class="count_info">3</div>
+              <div class="count_info">{{opinion.code}}</div>
               <div class="count_marker">
                 <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
+                <div class="count_marker_full" :style="'width: ' + opinion.code + '0%'"></div>
+                <div class="count_text">code</div>
+              </div>
+            </div>
+            <div class="count">
+              <div class="count_info">{{opinion.legal}}</div>
+              <div class="count_marker">
+                <div class="count_marker_empty"></div>
+                <div class="count_marker_full" :style="'width: ' + opinion.legal + '0%'"></div>
+                <div class="count_text">legal</div>
               </div>
             </div>
 
@@ -93,103 +101,7 @@ new Vue({
             </div>
             <div class="opinion_descr">
               <h6>review</h6>
-              <p>Idea is quite qood. Team is weak (not a lot of competence in marketing for such ind of project), business model and addressable market is also weak, tech is good - MVP is available and works fine, a lot of commits, code quality is good.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="opinion">
-        <div class="opinion_head">
-          <div class="opinion_name active"><span>Lee Chen</span></div>
-
-            <div class="rating">
-              <div class="rating_marker">
-                <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="legal"></star-rating>
-                <div class="rating_text">.rating_text</div>
-              </div>
-            </div>
-
-            <div class="count">
-              <div class="count_info">3</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-            <div class="count">
-              <div class="count_info">-</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 0%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-            <div class="count">
-              <div class="count_info">3</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-            <div class="count">
-              <div class="count_info">3</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-            <div class="count">
-              <div class="count_info">3</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-            <div class="count">
-              <div class="count_info">3</div>
-              <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" style="width: 10%"></div>
-                <div class="count_text">text</div>
-              </div>
-            </div>
-
-          <div class="opinion_arrow">
-            <span><i class="icon-down-open"></i></span>
-          </div>
-        </div>
-        <div class="opinion_body">
-          <div class="opinion_body_wrap">
-            <div class="opinion_info">
-              <div class="person">
-                <div class="person_img">
-                  <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
-                  <div class="icons">
-                    <a href="#" class="icon-facebook"></a>
-                    <a href="#" class="icon-twitter"></a>
-                  </div>
-                </div>
-                
-                <div class="person_info">
-                  <h6>profile</h6>
-                  <p>Experienced crypto investor, winner of Melonport portfolio managers competition</p>
-
-                  <h6>expert rating details</h6>
-                  <ul>
-                    <li><a href="#">50 votes</a></li>
-                    <li><a href="#">25 feedbacks</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="opinion_descr">
-              <h6>review</h6>
-              <p>Idea is quite qood. Team is weak (not a lot of competence in marketing for such ind of project), business model and addressable market is also weak, tech is good - MVP is available and works fine, a lot of commits, code quality is good.</p>
+              <p>{{opinion.review}}</p>
             </div>
           </div>
         </div>
@@ -201,15 +113,13 @@ new Vue({
   data: function data() {
 
     return {
-      legal: 0,
+      legal: 4,
       project: {}
     }
     
   },
   components: {
-    // <my-component> will only be available in parent's template
     'star-rating': VueStarRating.default
-    // Vue.component('star-rating', VueStarRating.default),
   },
   mounted () {
 
@@ -225,11 +135,11 @@ new Vue({
       return decodeURIComponent(results[2].replace(/\+/g, ' '))
     }
     id = getParameterByName('id', window.location.href)
-    axios.get('/base/' + id, {
+    axios.get('/base/rating/' + id, {
     }).then((response) => {
-      console.log(response.data)
-      this.project = response.data.current
-      console.log(this.project)
+      // console.log(response.data)
+      this.project = response.data
+      // console.log(this.project)
     }, (err) => {
       console.log(err)
     })
@@ -237,6 +147,7 @@ new Vue({
     $(document).on('click', '.opinion_arrow', function(){
       $(this).parents('.opinion').toggleClass('open')
     })
+   
   },
   computed: {
     projectComputed: function() {
@@ -248,9 +159,11 @@ new Vue({
         return projectComputed
       } catch(err) {}
     }
+
   },
   methods: {
-
+    
+    
   },
   filters: {
     ifEmpty: function (value) {
