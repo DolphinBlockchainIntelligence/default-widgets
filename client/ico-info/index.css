@@ -108,16 +108,18 @@ h6 {
 
 .icons a {
   text-decoration: none;
-  color: #555;
+  color: #555 !important;
   padding: 2px;
   font-size: 26px;
   -webkit-transition: color .2s;
   transition: color .2s; }
+  .icons a:before {
+    content: '\e808'; }
   @media (max-width: 480px) {
     .icons a {
       font-size: 20px; } }
   .icons a:hover {
-    color: #1f7886; }
+    color: #1f7886 !important; }
 
 .events .event {
   margin-bottom: 10px; }
@@ -318,48 +320,48 @@ h6 {
         vertical-align: middle; }
 
 .icon-website:before {
-  content: '\e800'; }
+  content: '\e800' !important; }
 
 .icon-edit:before {
-  content: '\e801'; }
+  content: '\e801' !important; }
 
 .icon-down-open:before {
-  content: '\e802'; }
+  content: '\e802' !important; }
 
 .icon-left-open:before {
-  content: '\e803'; }
+  content: '\e803' !important; }
 
 .icon-right-open:before {
-  content: '\e804'; }
+  content: '\e804' !important; }
 
 .icon-up-open:before {
-  content: '\e805'; }
+  content: '\e805' !important; }
 
 .icon-twitter:before {
-  content: '\f099'; }
+  content: '\f099' !important; }
 
 .icon-facebook:before {
-  content: '\f09a'; }
+  content: '\f09a' !important; }
 
 .icon-github:before {
-  content: '\f09b'; }
+  content: '\f09b' !important; }
 
 .icon-mail-alt:before {
-  content: '\f0e0'; }
+  content: '\f0e0' !important; }
 
 .icon-linkedin:before {
-  content: '\f0e1'; }
+  content: '\f0e1' !important; }
 
 .icon-whitepaper:before {
-  content: '\f0f6'; }
+  content: '\f0f6' !important; }
 
 .icon-telegram-chat:before,
 .icon-telegram:before {
-  content: '\f2c6'; }
+  content: '\f2c6' !important; }
 
 .icon-coinmarketcap:before {
-  content: '\e80a'; }
+  content: '\e80a' !important; }
 
 .icon-bitcointalk:before,
 .icon-bitcointalk-forum-topic {
-  content: '\e806'; }
+  content: '\e806' !important; }

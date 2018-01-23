@@ -4,67 +4,67 @@ new Vue({
   `
   <div>
     <div class="tabs">
-      <a href="#1" class="active">Project</a>
-      <a href="#2">Token</a>
-      <a href="#3">Legal</a>
-      <a href="#4">Team</a>
-      <a href="#5">Events</a>
+      <a href="#1" v-if="projectComputed.hasProject" class="active">Project</a>
+      <a href="#2" v-if="projectComputed.hasToken">Token</a>
+      <a href="#3" v-if="projectComputed.hasLegal">Legal</a>
+      <a href="#4" v-if="projectComputed.team">Team</a>
+      <a href="#5" v-if="projectComputed.sales">Events</a>
     </div>
     <div class="tabs_content">
       <div class="tabs_content_wrap active" id="1">
         <div class="project_wrap">
           <div class="project_info">
             <div class="project_info_main">
-              <div v-if="project.category">
+              <div v-if="projectComputed.category">
                 <h6>Category</h6>
-                <p>{{project.category}}</p>
+                <p>{{projectComputed.category}}</p>
               </div>
-              <div v-if="project.industry">
+              <div v-if="projectComputed.industry">
                 <h6>Industry</h6>
-                <p>{{project.industry}}</p>
+                <p>{{projectComputed.industry}}</p>
               </div>
-              <div v-if="project.keywords">
+              <div v-if="projectComputed.hasKeywords">
                 <h6>Keywords</h6>
                 <p>
-                  <span class="badge badge-pill badge-info" v-for="keyword in project.keywords">{{keyword}}</span>
+                  <span class="badge badge-pill badge-info" v-for="keyword in projectComputed.keywords">{{keyword}}</span>
                 </p>
               </div>
-              <div v-if="project.hashtags">
+              <div v-if="projectComputed.hasHashtags">
                 <h6>Hashtags</h6>
                 <p>
-                  <span class="badge badge-pill badge-info" v-for="hashtag in project.hashtags">{{hashtag}}</span>
+                  <span class="badge badge-pill badge-info" v-for="hashtag in projectComputed.hashtags">{{hashtag}}</span>
                 </p>
               </div>
-              <div v-if="project.formal">
+              <div v-if="projectComputed.formal">
                 <h6>The formal business entity</h6>
-                <p>{{project.formal}}</p>
+                <p>{{projectComputed.formal}}</p>
               </div>
-              <div v-if="project.homeland">
+              <div v-if="projectComputed.homeland">
                 <h6>Project homeland</h6>
-                <p>{{project.homeland}}</p>
+                <p>{{projectComputed.homeland}}</p>
               </div>
             </div>
             <div class="project_info_descr">
-              <div v-if="project.platform">
+              <div v-if="projectComputed.platform">
                 <h6>Project platform</h6>
-                <p>{{project.platform}}</p>
+                <p>{{projectComputed.platform}}</p>
               </div>
-              <div v-if="project.status">
+              <div v-if="projectComputed.status">
                 <h6>Project status</h6>
-                <p>{{project.status}}</p>
+                <p>{{projectComputed.status}}</p>
               </div>
-              <div v-if="project.description">
+              <div v-if="projectComputed.description">
                 <h6>Description</h6>
-                <p>{{project.description}}</p>
+                <p>{{projectComputed.description}}</p>
               </div>
             </div>
           </div>
           <div class="project_actions">
-            <a :href="'/base/upload/'+project.digestReport" class="btn btn-primary" v-if="project.digestReport" target="_blank">Digest</a>
+            <a :href="'/base/upload/'+projectComputed.digestReport" class="btn btn-primary" v-if="projectComputed.digestReport" target="_blank">Digest</a>
             <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Digest</a>
-            <a :href="'/base/upload/'+project.basicReport" class="btn btn-primary" v-if="project.basicReport" target="_blank">Basic</a>
+            <a :href="'/base/upload/'+projectComputed.basicReport" class="btn btn-primary" v-if="projectComputed.basicReport" target="_blank">Basic</a>
             <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Basic</a>
-            <a :href="'/base/upload/'+project.detailedReport" class="btn btn-primary" v-if="project.detailedReport" target="_blank">Detailed</a>
+            <a :href="'/base/upload/'+projectComputed.detailedReport" class="btn btn-primary" v-if="projectComputed.detailedReport" target="_blank">Detailed</a>
             <a href="https://presale.dolphin.bi/orderreport" class="btn btn-outline-primary" v-else target="_blank">Detailed</a>
             <div class="icons" v-if="projectComputed.links">
               <a :href="link.url" v-for="link in projectComputed.links" :class="link.dashedType" target="_blank"></a>
@@ -73,55 +73,55 @@ new Vue({
         </div>
       </div>
       <div class="tabs_content_wrap" id="2">
-        <div v-if="project.tokenName">
+        <div v-if="projectComputed.tokenName">
           <h6>Name of the token</h6>
-          <p>{{project.tokenName}}</p>
+          <p>{{projectComputed.tokenName}}</p>
         </div>
-        <div v-if="project.symbol">
+        <div v-if="projectComputed.symbol">
           <h6>Token's ticker code</h6>
-          <p>{{project.symbol}}</p>
+          <p>{{projectComputed.symbol}}</p>
         </div>
-        <div v-if="project.tokenPlatform">
+        <div v-if="projectComputed.tokenPlatform">
           <h6>Project platform</h6>
-          <p>{{project.tokenPlatform}}</p>
+          <p>{{projectComputed.tokenPlatform}}</p>
         </div>
-        <div v-if="project.tokenDescription">
+        <div v-if="projectComputed.tokenDescription">
           <h6>Your token gives the right</h6>
-          <p>{{project.tokenDescription}}</p>
+          <p>{{projectComputed.tokenDescription}}</p>
         </div>
-        <div v-if="project.emission">
+        <div v-if="projectComputed.emission">
           <h6>Total emission</h6>
-          <p>{{project.emission}}</p>
+          <p>{{projectComputed.emission}}</p>
         </div>
-        <div v-if="project.distribution">
+        <div v-if="projectComputed.distribution">
           <h6>Distribution of tokens</h6>
-          <p>{{project.distribution}}</p>
+          <p>{{projectComputed.distribution}}</p>
         </div>
-        <div v-if="project.extraemission">
+        <div v-if="projectComputed.extraemission">
           <h6>Extra emission</h6>
-          <p v-for="extraEm in project.extraemission">{{extraEm}}</p>
+          <p v-for="extraEm in projectComputed.extraemission">{{extraEm}}</p>
         </div>
       </div>
       <div class="tabs_content_wrap" id="3">
-        <div v-if="project.legalname">
+        <div v-if="projectComputed.legalname">
           <h6>Legal Entity Name</h6>
-          <p>{{project.legalname}}</p>
+          <p>{{projectComputed.legalname}}</p>
         </div>
-        <div v-if="project.legallocation">
+        <div v-if="projectComputed.legallocation">
           <h6>Legal Entity Location</h6>
-          <p>{{project.legallocation}}</p>
+          <p>{{projectComputed.legallocation}}</p>
         </div>
-        <div v-if="project.legalid">
+        <div v-if="projectComputed.legalid">
           <h6>Legal Entity ID</h6>
-          <p>{{project.legalid}}</p>
+          <p>{{projectComputed.legalid}}</p>
         </div>
-        <div v-if="project.legaldate">
+        <div v-if="projectComputed.legaldate">
           <h6>Date of registration</h6>
-          <p>{{project.legaldate}}</p>
+          <p>{{projectComputed.legaldate}}</p>
         </div>
       </div>
-      <div class="tabs_content_wrap" id="4" v-if="project.team">
-        <div class="team" v-for="person in project.team">
+      <div class="tabs_content_wrap" id="4" v-if="projectComputed.team">
+        <div class="team" v-for="person in projectComputed.team">
           <div class="person">
             <div class="person_img" v-if="person.photo">
               <img :src="'/base/upload/'+person.photo">
@@ -139,8 +139,8 @@ new Vue({
           </div>
         </div>
       </div>
-      <div class="tabs_content_wrap" id="5">
-        <div class="events" v-for="sale in project.sales">
+      <div class="tabs_content_wrap" id="5" v-if="projectComputed.sales">
+        <div class="events" v-for="sale in projectComputed.sales">
           <div class="event">
             <div class="event_head">
               <span class="event_type" v-if="sale.type">{{sale.type}}</span>
@@ -247,13 +247,32 @@ new Vue({
           })
         }
 
-        projectComputed.sales.forEach(function(sale){
-          sale.start = moment(sale.start).format('D MMM YYYY')
-          sale.end = moment(sale.end).format('D MMM YYYY')
-          sale.real = moment(sale.real).format('D MMM YYYY')
-        })
+        if (projectComputed.sales) {
+          projectComputed.sales.forEach(function(sale){
+            sale.start = moment(sale.start).format('D MMM YYYY')
+            sale.end = moment(sale.end).format('D MMM YYYY')
+            sale.real = moment(sale.real).format('D MMM YYYY')
+          })
+        }
 
         projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
+
+        projectComputed.hasKeywords = false
+        projectComputed.hasHashtags = false
+        try {
+          if (projectComputed.keywords[0]) {
+            projectComputed.hasKeywords = true
+          }
+        } catch(err) {}
+        try {
+          if (projectComputed.hashtags[0]) {
+            projectComputed.hasHashtags = true
+          }
+        } catch(err) {}
+        
+        projectComputed.hasProject = projectComputed.category || projectComputed.industry || projectComputed.hasKeywords || projectComputed.hasHashtags || projectComputed.formal || projectComputed.homeland || projectComputed.platform || projectComputed.status || projectComputed.description
+        projectComputed.hasToken = projectComputed.tokenName || projectComputed.symbol || projectComputed.tokenPlatform || projectComputed.tokenDescription || projectComputed.emission || projectComputed.distribution || projectComputed.extraemission
+        projectComputed.hasLegal = projectComputed.legalname || projectComputed.legallocation || projectComputed.legalid || projectComputed.legaldate
 
         return projectComputed
       // } catch(err) {}
