@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
+<style>
+html, body{
+  height: 100%;
+}
+.body-bg {
+  margin: 0;
+  background: url(bg-img.png) no-repeat;
+  background-size: cover;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  height: 100%;
+}
+.table{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0;
+}
+.table tr:first-child td {
+  border-top: none;
+  vertical-align: middle;
+  text-align: center;
+  height: 100%;
+  font-size: 25px;
+}
+</style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <div class="body-bg"></div>
+    <div id="vue-container"></div>
+  </body>
+</html>
