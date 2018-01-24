@@ -263,8 +263,14 @@ new Vue({
 
         projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
 
+        projectComputed.hasTeam = false
         projectComputed.hasKeywords = false
         projectComputed.hasHashtags = false
+        try {
+          if (projectComputed.team[0]) {
+            projectComputed.hasTeam = true
+          }
+        } catch(err) {}
         try {
           if (projectComputed.keywords[0]) {
             projectComputed.hasKeywords = true
@@ -275,6 +281,7 @@ new Vue({
             projectComputed.hasHashtags = true
           }
         } catch(err) {}
+        
         
         projectComputed.hasProject = projectComputed.category || projectComputed.industry || projectComputed.hasKeywords || projectComputed.hasHashtags || projectComputed.formal || projectComputed.homeland || projectComputed.platform || projectComputed.status || projectComputed.description
         projectComputed.hasToken = projectComputed.tokenName || projectComputed.symbol || projectComputed.tokenPlatform || projectComputed.tokenDescription || projectComputed.emission || projectComputed.distribution || projectComputed.extraemission
