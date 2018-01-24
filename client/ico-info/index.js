@@ -126,19 +126,21 @@ new Vue({
           </div>
         </div>
         <div class="tabs_content_wrap" id="4" v-if="projectComputed.team">
-          <div class="team" v-for="person in projectComputed.team">
-            <div class="person">
-              <div class="person_img" v-if="person.photo">
-                <img :src="'/base/upload/'+person.photo">
-              </div>
-              <div class="person_info">
-                <h3 v-if="person.name">{{person.name}}</h3>
-                <h5 v-if="person.role">{{person.role}}</h5>
-                <br>
-                <div class="icons">
-                  <a :href="person.facebook" class="icon-facebook" target="_blank" v-if="person.facebook"></a>
-                  <a :href="person.twitter" class="icon-twitter" target="_blank" v-if="person.twitter"></a>
-                  <a :href="person.linkedin" class="icon-linkedin" target="_blank" v-if="person.linkedin"></a>
+          <div class="team">
+            <div class="person" v-for="person in projectComputed.team">
+              <div class="person_wrap">
+                <div class="person_img" v-if="person.photo">
+                  <img :src="'/base/upload/'+person.photo">
+                </div>
+                <div class="person_info">
+                  <h3 v-if="person.name">{{person.name}}</h3>
+                  <h5 v-if="person.role">{{person.role}}</h5>
+                  
+                  <div class="icons">
+                    <a :href="person.facebook" class="icon-facebook" target="_blank" v-if="person.facebook"></a>
+                    <a :href="person.twitter" class="icon-twitter" target="_blank" v-if="person.twitter"></a>
+                    <a :href="person.linkedin" class="icon-linkedin" target="_blank" v-if="person.linkedin"></a>
+                  </div>
                 </div>
               </div>
             </div>
