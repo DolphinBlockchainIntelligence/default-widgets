@@ -147,8 +147,8 @@ new Vue({
           </div>
         </div>
         <div class="tabs_content_wrap" id="5" v-if="projectComputed.sales">
-          <div class="events" v-for="sale in projectComputed.sales">
-            <div class="event">
+          <div class="events">
+            <div class="event" v-for="sale in projectComputed.sales">
               <div class="event_head">
                 <span class="event_type" v-if="sale.type">{{sale.type}}</span>
                 <span class="event_start" v-if="sale.start">{{sale.start}}</span>

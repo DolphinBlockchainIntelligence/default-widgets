@@ -174,7 +174,7 @@ h6 {
     color: #1f7886 !important; }
 
 .events {
-  width: 100%; }
+  width: 97.5vw; }
   .events .event {
     margin-bottom: 10px; }
     .events .event .event_head {
