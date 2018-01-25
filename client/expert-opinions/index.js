@@ -17,56 +17,63 @@ new Vue({
             <div class="count">
               <div class="count_info">{{opinion.idea}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.idea + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.idea + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">idea</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.team}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.team + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.team + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">team</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.busmodel}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.busmodel + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.busmodel + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">busmodel</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.market}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.market + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.market + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">market</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.tech}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.tech + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.tech + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">tech</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.code}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.code + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.code + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">code</div>
               </div>
             </div>
             <div class="count">
               <div class="count_info">{{opinion.legal}}</div>
               <div class="count_marker">
-                <div class="count_marker_empty"></div>
-                <div class="count_marker_full" :style="'width: ' + opinion.legal + '0%'"></div>
+                <div class="count_marker_empty">
+                  <img :src="'img/mark_' + opinion.legal + '.svg'" class="count_marker_cell">
+                </div>
                 <div class="count_text">legal</div>
               </div>
             </div>
