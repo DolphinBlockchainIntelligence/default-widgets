@@ -80,6 +80,7 @@ new Vue({
               <p>{{projectComputed.tokenName}}</p>
             </div>
             <div v-if="projectComputed.symbol">
+              // <h6>'Token's ticker code</h6>
               <h6>Token's ticker code</h6>
               <p>{{projectComputed.symbol}}</p>
             </div>
@@ -148,7 +149,7 @@ new Vue({
         </div>
         <div class="tabs_content_wrap" id="5" v-if="projectComputed.sales">
           <div class="events">
-            <div class="event" v-for="sale in projectComputed.sales">
+            <div :class="'event' + ' ' + sale.open" v-for="sale in projectComputed.sales">
               <div class="event_head">
                 <span class="event_type" v-if="sale.type">{{sale.type}}</span>
                 <span class="event_start" v-if="sale.start">{{sale.start}}</span>
@@ -256,10 +257,19 @@ new Vue({
         }
 
         if (projectComputed.sales) {
+
           projectComputed.sales.forEach(function(sale){
             sale.start = moment(sale.start).format('D MMM YYYY')
             sale.end = moment(sale.end).format('D MMM YYYY')
             sale.real = moment(sale.real).format('D MMM YYYY')
+          })
+
+          projectComputed.sales.forEach(function (sale, i) {
+            if (i == (projectComputed.sales.length - 1)) {
+              sale.open = 'open'
+            } else {
+              sale.open = ''
+            }
           })
         }
 
@@ -289,8 +299,12 @@ new Vue({
         projectComputed.hasToken = projectComputed.tokenName || projectComputed.symbol || projectComputed.tokenPlatform || projectComputed.tokenDescription || projectComputed.emission || projectComputed.distribution || projectComputed.extraemission
         projectComputed.hasLegal = projectComputed.legalname || projectComputed.legallocation || projectComputed.legalid || projectComputed.legaldate
 
+        
+        
+
         return projectComputed
       // } catch(err) {}
+
     }
   },
   methods: {
