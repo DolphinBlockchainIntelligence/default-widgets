@@ -80,7 +80,6 @@ new Vue({
               <p>{{projectComputed.tokenName}}</p>
             </div>
             <div v-if="projectComputed.symbol">
-              // <h6>'Token's ticker code</h6>
               <h6>Token's ticker code</h6>
               <p>{{projectComputed.symbol}}</p>
             </div>

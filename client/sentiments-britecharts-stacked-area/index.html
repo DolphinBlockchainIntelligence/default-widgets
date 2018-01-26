@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+
+<style>
+body {
+  margin: 0;
+}
+.title {
+  margin: 0 10px;
+}
+.highcharts-container, .sentimentsLineChartundefined {
+  width: 100%;
+}
+</style>
+
+
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="https://unpkg.com/vue@2.4.2/dist/vue.js"></script>
+  <!-- // <script src="https://code.highcharts.com/stock/highstock.js"></script> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <!-- // <script src="https://unpkg.com/britecharts@2.0.0/dist/umd/stackedArea.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/britecharts/2.0.0/css/charts/stacked-area.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/britecharts/2.0.0/bundled/britecharts.min.js"></script>
+  <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/britecharts/2.0.0/umd/stacked-area.min.js"></script> -->
+  <!-- // <script src="https://unpkg.com/britecharts@2.0.0/dist/umd/tooltip.min.js"></script> -->
+  <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/britecharts/2.0.0/umd/tooltip.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-selection/1.1.0/d3-selection.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-time-format/2.0.5/d3-time-format.min.js"></script>
+
+
+<script>
+var StackedArea = britecharts.stackedArea()
+var ChartTooltip = britecharts.tooltip()
+// console.log(ChartTooltip)
+// var BrushChart = britecharts.brush()
+var colors = [
+  '#ffce00', //yellow
+  '#6aedc7', //green
+  '#ff938c', // red
+  '#ffa71a', //orange
+  '#f866b9', //pink
+  '#998ce3' //purple
+];
+new Vue({
+  el: '#app',
+  template: `
+  <div>
+    <div id="sentimentsBritechartsStackedArea" class="sentimentsBritechartsStackedArea"></div>
+    <div id="sentimentsBritechartsStackedAreaBrush" class="sentimentsBritechartsStackedAreaBrush"></div>
+  </div>
+  `,
+  data: function data() {
+    return {
+      tooltipThreshold: 600,
+      width: 1000,
+      height: 1000,
+      margin: 0,
+      data: []
+    }
+  },
+  mounted () {
+    this.sentimentsStatistics()
+  },
+  methods: {
+    sentimentsStatistics: function () {
+      var getParameterByName = function(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      var postId = getParameterByName('id', window.location.href)
+      console.log(postId)
+      axios.get('/data/btt-sentiments/S'+ postId +'.json')
+      .then(response => {
+        console.log(response)
+        let chartData = response.data.chart
+        let pointStart = response.data.pointStart * 10
+        let pointInterval = 86400000 // 3600 * 1000 * 24
+        _.forEach(chartData, (sentiment, i) => {
+          _.forEach(sentiment, (value, j) => {
+            value = {
+              date: moment(pointStart+pointInterval*j).format(),
+              value: value,
+              name: i,
+            }
+            this.data.push(value)
+          })
+        })
+
+        // cointainer width/height
+        let containerWidth = document.documentElement.clientWidth
+        let containerHeight = document.documentElement.clientHeight
+        let containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
+
+        var container = d3.select('#sentimentsBritechartsStackedArea')
+        // var StackedArea = britecharts.stackedArea()
+        // var ChartTooltip = britecharts.tooltip()
+        var stackedArea = new britecharts.stackedArea()
+        // var stackedArea = new StackedArea()
+        var chartTooltip = new britecharts.tooltip() 
+        // var chartTooltip = new ChartTooltip()
+        // var brushChart = new BrushChart()
+        var brushChart = new britecharts.brush()
+        // if (container.node()) {
+          stackedArea
+            .isAnimated(true)
+            .tooltipThreshold(600)
+            .width(containerWidth)
+            .height(containerHeight - 100)
+            .colorSchema(colors)
+            .grid('horizontal')
+            .on('customMouseOver', chartTooltip.show)
+            .on('customMouseMove', chartTooltip.update)
+            .on('customMouseOut', chartTooltip.hide)
+          chartTooltip
+            .topicLabel('values')
+            .title('Sentiments')
+            .topicsOrder(['positive', 'neutral', 'negative'])
+        // }
+
+        // BRUSCHART
+        // brushChart
+        //   .width(containerWidth)
+        //   .height(100)
+        //   .on('customBrushStart', function(brushExtent) {
+        //     console.log('brush start')
+        //     console.log(brushExtent)
+        //     var format = d3.timeFormat('%m/%d/%Y');
+        //     d3.select('.js-start-date').text(format(brushExtent[0]));
+        //     d3.select('.js-end-date').text(format(brushExtent[1]));
+        //     d3.select('.js-date-range').classed('is-hidden', false);
+        //     // // Filter
+        //     d3.selectAll('#sentimentsBritechartsStackedArea .stacked-area').remove()
+        //     stackedArea(optionalColorSchema ? colors : null, filterData(brushExtent[0], brushExtent[1]))
+        //     stackedArea
+        //       .isAnimated(true)
+        //       .tooltipThreshold(600)
+        //       .width(containerWidth)
+        //       .height(containerHeight - 100)
+        //       .colorSchema(colors)
+        //       .grid('horizontal')
+        //       .on('customMouseOver', chartTooltip.show)
+        //       .on('customMouseMove', chartTooltip.update)
+        //       .on('customMouseOut', chartTooltip.hide)
+        //   })
+        container.datum(this.data).call(stackedArea)
+        var tooltipContainer = d3.select('#sentimentsBritechartsStackedArea .metadata-group .vertical-marker-container')
+        // var brushContainer = d3.select('#sentimentsBritechartsStackedAreaBrush')
+        tooltipContainer.datum([]).call(chartTooltip)
+        // brushContainer.datum(this.data).call(brushChart)
+      })
+      .catch(e => {
+        this.chartError = true
+        this.errors.push(e)
+      })
+
+      // cointainer width/height
+      // let containerWidth = document.documentElement.clientWidth
+      // let containerHeight = document.documentElement.clientHeight
+      // let containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
+
+      // var container = d3.select('#sentimentsBritechartsStackedArea')
+      // var stackedArea = new StackedArea()
+      // if (container.node()) {
+      //     stackedArea
+      //       .isAnimated(true)
+      //       .tooltipThreshold(600)
+      //       .width(600)
+      //       .height(600)
+      //       .colorSchema(colorSchemas.sentiments)
+      // }
+      // container.datum(this.testData).call(stackedArea)
+    }
+  }
+})
+</script>
+</html>
