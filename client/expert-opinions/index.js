@@ -114,12 +114,16 @@ new Vue({
         </div>
       </div>
     </div>
+    <div class="text-center">
+      <a class="btn btn-outline-info" :href="'/#/opinion/add/'+id" target="_top">Add your opinion</a>
+    </div>
   </div>
   `,
 
   data: function data() {
 
     return {
+      id: '',
       legal: 4,
       project: {}
     }
@@ -142,6 +146,7 @@ new Vue({
       return decodeURIComponent(results[2].replace(/\+/g, ' '))
     }
     id = getParameterByName('id', window.location.href)
+    this.id = id
     axios.get('/base/rating/' + id, {
     }).then((response) => {
       // console.log(response.data)
