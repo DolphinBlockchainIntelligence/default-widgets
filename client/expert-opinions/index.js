@@ -156,7 +156,7 @@ new Vue({
       console.log(err)
     })
 
-    $(document).on('click', '.opinion_arrow', function(){
+    $(document).on('click', '.opinion_arrow, .opinion_name, .count_marker', function(){
       $(this).parents('.opinion').toggleClass('open')
     })
    

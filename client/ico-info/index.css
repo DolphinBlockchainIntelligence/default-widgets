@@ -140,6 +140,9 @@ h6 {
   font-size: 12px;
   margin-bottom: 0; }
 
+.badge {
+  margin-right: 4px; }
+
 .btn {
   padding: 8px 14px;
   margin-right: 10px; }
