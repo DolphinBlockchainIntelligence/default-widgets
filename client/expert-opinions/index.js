@@ -4,7 +4,7 @@ new Vue({
   template:
   `
   <div>
-    <div class="opinions">
+    <div class="opinions" v-if="project.hasRatings">
       <div class="opinion" v-for="opinion in project.rating">
         <div class="opinion_head">
           <div class="opinion_name active"><span>{{opinion.name}}</span></div>
@@ -77,7 +77,6 @@ new Vue({
                 <div class="count_text">legal</div>
               </div>
             </div>
-
           <div class="opinion_arrow">
             <span><i class="icon-down-open"></i></span>
           </div>
@@ -93,7 +92,6 @@ new Vue({
                     <a href="#" class="icon-twitter"></a>
                   </div>
                 </div>
-                
                 <div class="person_info">
                   <h6>profile</h6>
                   <p>Experienced crypto investor, winner of Melonport portfolio managers competition</p>
@@ -113,29 +111,29 @@ new Vue({
           </div>
         </div>
       </div>
+      <div class="text-center">
+        <a class="btn btn-outline-info" :href="'/#/opinion/add/'+id" target="_top">Add your opinion</a>
+      </div>
     </div>
-    <div class="text-center">
-      <a class="btn btn-outline-info" :href="'/#/opinion/add/'+id" target="_top">Add your opinion</a>
+    <div class="opinions_none" v-else>
+      <div class="opinions_none_wrap">
+        <p>There are no experts opinions.</p>
+        <a class="btn btn-outline-info" :href="'/#/opinion/add/'+id" target="_top">Add your opinion</a>
+      </div>
     </div>
   </div>
   `,
-
   data: function data() {
-
     return {
       id: '',
       legal: 4,
       project: {}
     }
-    
   },
   components: {
     'star-rating': VueStarRating.default
   },
   mounted () {
-
-    
-
     var getParameterByName = function(name, url) {
       if (!url) url = window.location.href
       name = name.replace(/[\[\]]/g, '\\$&')
@@ -149,32 +147,20 @@ new Vue({
     this.id = id
     axios.get('/base/rating/' + id, {
     }).then((response) => {
-      // console.log(response.data)
-      this.project = response.data
-      // console.log(this.project)
+      var project = response.data
+      project.hasRatings = false
+      if ( project.rating[0] ) {
+        project.hasRatings = true
+      }
+      this.project = project
     }, (err) => {
       console.log(err)
     })
-
     $(document).on('click', '.opinion_arrow, .opinion_name, .count_marker', function(){
       $(this).parents('.opinion').toggleClass('open')
     })
-   
-  },
-  computed: {
-    projectComputed: function() {
-      try {
-        var projectComputed = this.project
-        projectComputed.links.forEach(function(link){
-          link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-')
-        })
-        return projectComputed
-      } catch(err) {}
-    }
-
   },
   methods: {
-    
     
   },
   filters: {
