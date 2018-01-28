@@ -117,7 +117,7 @@ new Vue({
     </div>
     <div class="opinions_none" v-else>
       <div class="opinions_none_wrap">
-        <p>There are no experts opinions.</p>
+        <p>There are no expert opinions.</p>
         <a class="btn btn-outline-info" :href="'/#/opinion/add/'+id" target="_top">Add your opinion</a>
       </div>
     </div>

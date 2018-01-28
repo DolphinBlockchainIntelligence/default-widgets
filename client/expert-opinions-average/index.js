@@ -1,6 +1,5 @@
 new Vue({
   el: '#vue-container',
-  
   template:
   `
   <div>
@@ -12,20 +11,14 @@ new Vue({
     </div>
   </div>
   `,
-
   data: function data() {
-
     return {
       id: '',
       average: 0,
       count: 0
     }
-    
   },
   mounted () {
-
-    
-
     var getParameterByName = function(name, url) {
       if (!url) url = window.location.href
       name = name.replace(/[\[\]]/g, '\\$&')
@@ -39,23 +32,21 @@ new Vue({
     this.id = id
     axios.get('/base/rating/' + id, {
     }).then((response) => {
-      // console.log(response.data)
       this.count = response.data.rating.length
-
        var parameterSum = 0
        var parameterCount = 0
-
        response.data.rating.forEach(function(opinion){
         opinion._array.forEach(function(parameter){
           parameterSum += parameter.value
           parameterCount += 1
         })
        })
-       this.average = parameterSum / parameterCount
+       if (parameterCount != 0) {
+        this.average = parameterSum / parameterCount
+       }
     }, (err) => {
       console.log(err)
     })
-   
   },
   computed: {
     projectComputed: function() {
@@ -67,11 +58,6 @@ new Vue({
         return projectComputed
       } catch(err) {}
     }
-
-  },
-  methods: {
-    
-    
   },
   filters: {
     ifEmpty: function (value) {
