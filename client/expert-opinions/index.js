@@ -7,10 +7,10 @@ new Vue({
     <div class="opinions" v-if="project.hasRatings">
       <div class="opinion" v-for="opinion in project.rating">
         <div class="opinion_head">
-          <div class="opinion_name active"><span>{{opinion.name}}</span></div>
+          <div class="opinion_name active"><span>{{opinion.expert.profile.realName}}</span></div>
             <div class="rating">
               <div class="rating_marker">
-                <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="legal"></star-rating>
+                <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="opinion.expert.rating"></star-rating>
                 <div class="rating_text">expert rating</div>
               </div>
             </div>
@@ -86,15 +86,16 @@ new Vue({
             <div class="opinion_info">
               <div class="person">
                 <div class="person_img">
-                  <img src="https://s3.amazonaws.com/icofaces/03d471300effbea2f9e681eadc804cdb3b564134.jpg">
+                  <!-- <img :src="opinion.expert.profile.photoUrl" v-if="opinion.expert.profile.photoUrl"> -->
+                  <img src="img/profile.svg">
                   <div class="icons">
-                    <a href="#" class="icon-facebook"></a>
-                    <a href="#" class="icon-twitter"></a>
+                    <a :href="opinion.expert.profile.social.Facebook" class="icon-facebook" target="_blank"></a>
+                    <a :href="opinion.expert.profile.social.Twitter" class="icon-twitter" target="_blank"></a>
                   </div>
                 </div>
                 <div class="person_info">
                   <h6>profile</h6>
-                  <p>Experienced crypto investor, winner of Melonport portfolio managers competition</p>
+                  <p>{{opinion.expert.profile.profileText}}</p>
 
                   <h6>expert rating details</h6>
                   <ul>
@@ -126,7 +127,6 @@ new Vue({
   data: function data() {
     return {
       id: '',
-      legal: 4,
       project: {}
     }
   },
@@ -148,6 +148,7 @@ new Vue({
     axios.get('/base/rating/' + id, {
     }).then((response) => {
       var project = response.data
+      console.log(project)
       project.hasRatings = false
       if ( project.rating[0] ) {
         project.hasRatings = true
