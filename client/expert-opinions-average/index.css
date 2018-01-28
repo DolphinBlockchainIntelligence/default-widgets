@@ -1,0 +1,28 @@
+.opinions_average {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  background: #17a2b8;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .opinions_average .opinions_average_count {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    text-align: center;
+    color: #fff; }
+    .opinions_average .opinions_average_count p {
+      font-size: 12vw;
+      margin-bottom: 0; }
+    .opinions_average .opinions_average_count span {
+      font-size: 5vw; }
