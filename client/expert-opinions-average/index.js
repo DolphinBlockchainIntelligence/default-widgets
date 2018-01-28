@@ -6,7 +6,7 @@ new Vue({
     <div class="opinions_average">
       <div class="opinions_average_count">
         <p>{{average.toFixed(1)}}</p>
-        <span>based on {{count}} experts opinions</span>
+        <span>based on {{count}} expert opinion<span v-if="count > 1">s</span></span>
       </div>
     </div>
   </div>
