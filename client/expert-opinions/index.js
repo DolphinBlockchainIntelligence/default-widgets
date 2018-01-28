@@ -86,8 +86,8 @@ new Vue({
             <div class="opinion_info">
               <div class="person">
                 <div class="person_img">
-                  <img :src="opinion.expert.profile.photoUrl" v-if="opinion.expert.profile.photoUrl">
-                  <img src="img/profile.svg" v-else>
+                  <div :style=" 'background-image: url(' + opinion.expert.profile.photoUrl + ')'" v-if="opinion.expert.profile.photoUrl"></div>
+                  <div style="background-image: url('img/profile.svg')" v-else></div>
                   <div class="icons">
                     <a :href="opinion.expert.profile.social.Facebook" class="icon-facebook" target="_blank"></a>
                     <a :href="opinion.expert.profile.social.Twitter" class="icon-twitter" target="_blank"></a>
