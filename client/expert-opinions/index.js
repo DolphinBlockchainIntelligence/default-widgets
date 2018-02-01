@@ -12,6 +12,13 @@ new Vue({
               <div class="rating_marker">
                 <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="opinion.expert.rating"></star-rating>
                 <div class="rating_text">expert rating</div>
+                <form class="rating_popover">
+                  <textarea type="text" rows="3" class="form-control"></textarea>
+                  <div class="btn-group btn-block" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-secondary">Send</button>
+                    <button type="button" class="btn btn-secondary rating_popover_close">Close</button>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="count">
@@ -159,6 +166,15 @@ new Vue({
     })
     $(document).on('click', '.opinion_arrow, .opinion_name, .count_marker', function(){
       $(this).parents('.opinion').toggleClass('open')
+    })
+    $(document).on('click', '.rating', function(){
+      $('.rating').removeClass('active')
+      $(this).addClass('active')
+    })
+    $(document).on('click', '.rating_popover_close', function(e){
+      e.preventDefault()
+      e.stopPropagation()
+      $('.rating').removeClass('active')
     })
   },
   methods: {
