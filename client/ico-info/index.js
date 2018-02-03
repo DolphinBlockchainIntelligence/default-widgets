@@ -251,7 +251,7 @@ new Vue({
 
         if (projectComputed.links && projectComputed.links != []) {
           projectComputed.links.forEach(function(link){
-            link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-')
+            link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-').replace('(', '').replace(')', '')
           })
         }
 
