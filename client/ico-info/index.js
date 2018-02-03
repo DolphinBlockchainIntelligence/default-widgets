@@ -89,7 +89,7 @@ new Vue({
             </div>
             <div v-if="projectComputed.tokenDescription">
               <h6>Your token gives the right</h6>
-              <p>{{projectComputed.tokenDescription}}</p>
+              <p class="pre">{{projectComputed.tokenDescription}}</p>
             </div>
             <div v-if="projectComputed.emission">
               <h6>Total emission</h6>
@@ -97,7 +97,7 @@ new Vue({
             </div>
             <div v-if="projectComputed.distribution">
               <h6>Distribution of tokens</h6>
-              <p>{{projectComputed.distribution}}</p>
+              <p class="pre">{{projectComputed.distribution}}</p>
             </div>
             <div v-if="projectComputed.extraemission">
               <h6>Extra emission</h6>

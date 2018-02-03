@@ -3,10 +3,7 @@ new Vue({
   el: '#top-ico',
   template:
   `
-  <div>
-    <h3 v-if="heading">{{heading}}</h3>
-    <div id="highcharts" style="min-width: 100%; width: 100%; height: 100vh; min-height: 100vh; margin: 0 auto"></div>
-  </div>
+  <iframe :src="'https://widget.similarweb.com/traffic/'+url" frameborder="0" width="450" height="200"></iframe>
   `,
   data: function data() {
     return {
@@ -26,7 +23,7 @@ new Vue({
           text: null
         },
         xAxis: {
-            categories: ['EOS', 'Tezos', 'FileCoin', 'Bancor', 'Status', 'Kin', 'TenX', 'DomRaider', 'Kyber Network', 'Centra', 'Enigma', 'SONM', 'Monetha', 'Basic Attention Token', 'Civic', 'Stox', 'ChainLink', 'Polybios'],
+            categories: ['EOS', 'Hdac', 'Tezos', 'FileCoin', 'Sirin Labs', 'Bancor', 'The DAO', 'Polkadot', 'QASH', 'Status', 'Envion', 'Kin', 'Comsa', 'TenX', 'WAX', 'BankEx', 'Neuromation', 'DomRaider', 'Zeepin', 'Nebulas', 'Kyber Network', 'Centra', 'Enigma', 'SONM', 'Monetha', 'Basic Attention Token', 'Civic', 'Stox', 'ChainLink', 'Polybios'],
             title: {
                 text: null
             }
@@ -66,11 +63,11 @@ new Vue({
         },
         series: [{
             name: 'Amount raised in BTC',
-            data: [550, 450, 350, 250, 150, 85, 65, 55, 53, 52, 49, 30, 31, 20, 18, 18, 17, 15],
+            data: [110671, 17257, 98077, 44547, 9722, 50803, 300294, 25008, 14689, 39338, 7168, 23857, 13002, 29095, 7728, 4355, 4130, 13809, 5446, 3341],
             color: 'rgba(248, 160, 54, .8)'
         }, {
             name: 'Amount raised in $1000',
-            data: [1070, 900, 500, 400, 100, 80, 60, 55, 53, 52, 49, 30, 31, 20, 18, 18, 17, 10],
+            data: [1293298, 258000, 230396, 205886, 157886, 152000, 150000, 144046, 105000, 103000, 100012, 99415, 95614, 80000, 80000, 70600, 67451, 66080, 64449, 60000],
             color: 'rgba(88, 110, 74, .8)'
           }]
       })

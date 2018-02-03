@@ -1,3 +1,6 @@
+.pre {
+  white-space: pre-wrap; }
+
 .tabs_wrap {
   display: -webkit-box;
   display: -webkit-flex;
