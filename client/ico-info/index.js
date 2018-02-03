@@ -93,7 +93,7 @@ new Vue({
             </div>
             <div v-if="projectComputed.emission">
               <h6>Total emission</h6>
-              <p>{{projectComputed.emission}}</p>
+              <p>{{projectComputed.emission | numberWithSpaces}}</p>
             </div>
             <div v-if="projectComputed.distribution">
               <h6>Distribution of tokens</h6>
@@ -101,7 +101,7 @@ new Vue({
             </div>
             <div v-if="projectComputed.extraemission">
               <h6>Extra emission</h6>
-              <p v-for="extraEm in projectComputed.extraemission">{{extraEm}}</p>
+              <p v-for="extraEm in projectComputed.extraemission">{{extraEm | numberWithSpaces}}</p>
             </div>
           </div>
         </div>
@@ -161,19 +161,19 @@ new Vue({
                 <div class="event_info">
                   <div v-if="sale.tosell">
                     <h6>Token to sell</h6>
-                    <p>{{sale.tosell}}</p>
+                    <p>{{sale.tosell | numberWithSpaces}}</p>
                   </div>
                   <div v-if="sale.softCap">
                     <h6>Softcap</h6>
-                    <p>{{sale.softCap}} {{sale.caps}}</p>
+                    <p>{{sale.softCap | numberWithSpaces}} {{sale.caps}}</p>
                   </div>
                   <div v-if="sale.hardCap">
                     <h6>Hardcap</h6>
-                    <p>{{sale.hardCap}} {{sale.caps}}</p>
+                    <p>{{sale.hardCap | numberWithSpaces}} {{sale.caps}}</p>
                   </div>
                   <div v-if="sale.raised">
                     <h6>Actually raised</h6>
-                    <p>{{sale.raised}}</p>
+                    <p>{{sale.raised | numberWithSpaces}}</p>
                   </div>
                   <div v-if="sale.real">
                     <h6>Actual finish date</h6>
@@ -313,6 +313,10 @@ new Vue({
     ifEmpty: function (value) {
       if (!value) return '-'
       return value
+    },
+    numberWithSpaces: function (value) {
+      if (!value) return ''
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     }
   }
 })
