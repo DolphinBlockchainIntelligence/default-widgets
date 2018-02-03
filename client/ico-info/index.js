@@ -80,7 +80,7 @@ new Vue({
               <p>{{projectComputed.tokenName}}</p>
             </div>
             <div v-if="projectComputed.symbol">
-              <h6>Token's ticker code</h6>
+              <h6>Token&#39;s ticker code</h6>
               <p>{{projectComputed.symbol}}</p>
             </div>
             <div v-if="projectComputed.tokenPlatform">
@@ -163,18 +163,19 @@ new Vue({
                     <h6>Token to sell</h6>
                     <p>{{sale.tosell | numberWithSpaces}}</p>
                   </div>
-                  <div v-if="sale.softCap">
+                  <div v-if="sale.softcap">
                     <h6>Softcap</h6>
-                    <p>{{sale.softCap | numberWithSpaces}} {{sale.caps}}</p>
+                    <p>{{sale.softcap | numberWithSpaces}} {{sale.caps}}</p>
                   </div>
-                  <div v-if="sale.hardCap">
+                  <div v-if="sale.hardcap">
                     <h6>Hardcap</h6>
-                    <p>{{sale.hardCap | numberWithSpaces}} {{sale.caps}}</p>
+                    <p>{{sale.hardcap | numberWithSpaces}} {{sale.caps}}</p>
                   </div>
                   <div v-if="sale.raised">
                     <h6>Actually raised</h6>
                     <p>{{sale.raised | numberWithSpaces}}</p>
                   </div>
+                  
                   <div v-if="sale.real">
                     <h6>Actual finish date</h6>
                     <p>{{sale.real}}</p>
@@ -248,7 +249,19 @@ new Vue({
     projectComputed: function() {
       // try {
         var projectComputed = this.project
-
+        _.forEach(projectComputed, function(item, i){
+          if ( item == '' || item == [] || item == null ) {
+            delete projectComputed[i]
+          }
+        })
+        _.forEach(projectComputed.sales, function(sale, s){
+          _.forEach(sale, function(item, i){
+            if ( item == '' || item == [] || item == null ) {
+              console.log(item)
+              delete projectComputed.sales[s][i]
+            }
+          })
+        })
         if (projectComputed.links && projectComputed.links != []) {
           projectComputed.links.forEach(function(link){
             link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-').replace('(', '').replace(')', '')
