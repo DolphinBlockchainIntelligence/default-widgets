@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+<style>
+body {
+  margin: 0;
+}
+html {
+  overflow-x: hidden;
+}
+</style>
+
+
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="https://unpkg.com/vue@2.4.2/dist/vue.min.js"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script>
+new Vue({
+  el: '#app',
+  template: `
+
+<table class="hover">
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>Name</th>
+      <th>Base price, USD</th>
+      <th>Vol / Part</th>
+      <th>Recalc</th>
+      <th>Asset_type</th>
+      <th>Blockchain type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="asset in assets">
+      <td>{{asset.symbol}}</td>
+      <td>{{asset.name}}</td>
+      <td>{{asset.price}}</td>
+      <td>{{asset.vol}}</td>
+      <td>{{asset.rebalance_at}}</td>
+      <td>{{asset.asset_type}}</td>
+      <td>{{asset.blockchain_type}}</td>
+    </tr>
+  </tbody>
+</table>
+
+  `,
+  data: () => ({
+    assets: []
+  }),
+  mounted () {
+
+    var getParameterByName = function(name, url) {
+      if (!url) url = window.location.href
+      name = name.replace(/[\[\]]/g, '\\$&')
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url)
+      if (!results) return null
+      if (!results[2]) return ''
+      return decodeURIComponent(results[2].replace(/\+/g, ' '))
+    }
+    var symbols = getParameterByName('symbols', window.location.href)
+
+    axios.get('https://dolphinbi-api.coinindex.agency/api-endpoint.php?symbols='+symbols+'&callback=')
+    .then(response => {
+      this.assets = response.data.components
+    })
+    .catch(e => {
+      console.log(e)
+    })
+  }
+})
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+<style>
+body {
+  margin: 0;
+}
+html {
+  overflow-x: hidden;
+}
+</style>
+
+
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="https://unpkg.com/vue@2.4.2/dist/vue.min.js"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script>
+new Vue({
+  el: '#app',
+  template: `
+
+<div>
+  <h3>Game Industry Index</h3>
+  <h4 class="subheader">[GAME:INDEX] Game industry tokens index</h4>
+  <table class="hover">
+    <tbody>
+      <tr><td>Арифметический, по темпу роста цены</td></tr>
+      <tr><td>{{info.base_value}} начальное значение</td></tr>
+      <tr><td>{{info.base_date}} начало расчета</td></tr>
+      <tr><td>15 мин. интервал расчета</td></tr>
+      <tr><td>Отбор по сектору рынка</td></tr>
+      <tr><td>25 активов в индексе</td></tr>
+      <tr><td>1 текущий делитель</td></tr>
+      <tr><td>{{info.benchmark_index}} бенчмарк</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warning">
+    <h5><strong>Important!</strong> All data are provided in test mode!</h5>
+  </div>
+</div>
+
+  `,
+  data: () => ({
+    info: []
+  }),
+  mounted () {
+    var getParameterByName = function(name, url) {
+      if (!url) url = window.location.href
+      name = name.replace(/[\[\]]/g, '\\$&')
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url)
+      if (!results) return null
+      if (!results[2]) return ''
+      return decodeURIComponent(results[2].replace(/\+/g, ' '))
+    }
+    var symbols = getParameterByName('symbols', window.location.href)
+
+    axios.get('https://dolphinbi-api.coinindex.agency/api-endpoint.php?symbols='+symbols+'&callback=')
+    .then(response => {
+      this.info = response.data.info
+    })
+    .catch(e => {
+      console.log(e)
+    })
+  }
+})
+</script>
+</html>
