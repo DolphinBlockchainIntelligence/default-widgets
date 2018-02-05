@@ -104,85 +104,87 @@ new Vue({
         let containerWidth = document.documentElement.clientWidth
         let containerHeight = document.documentElement.clientHeight
         let containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
+        let dataset = this.data
+        let optionalDataset
 
-        var container = d3.select('#sentimentsBritechartsStackedArea')
-        // var StackedArea = britecharts.stackedArea()
-        // var ChartTooltip = britecharts.tooltip()
-        var stackedArea = new britecharts.stackedArea()
-        // var stackedArea = new StackedArea()
-        var chartTooltip = new britecharts.tooltip() 
-        // var chartTooltip = new ChartTooltip()
-        // var brushChart = new BrushChart()
-        var brushChart = new britecharts.brush()
-        // if (container.node()) {
-          stackedArea
-            .isAnimated(true)
-            .tooltipThreshold(600)
-            .width(containerWidth)
-            .height(containerHeight - 100)
-            .colorSchema(colors)
-            .grid('horizontal')
-            .on('customMouseOver', chartTooltip.show)
-            .on('customMouseMove', chartTooltip.update)
-            .on('customMouseOut', chartTooltip.hide)
+        function createStackedChart(optionalData){
+          containerWidth = document.documentElement.clientWidth
+          containerHeight = document.documentElement.clientHeight
+          containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
+          var container = d3.select('#sentimentsBritechartsStackedArea')
+          var stackedArea = new britecharts.stackedArea()
+          var chartTooltip = new britecharts.tooltip() 
+          var tooltipContainer
+          if (container.node()) {
+            stackedArea
+              .isAnimated(true)
+              .tooltipThreshold(600)
+              .width(containerWidth)
+              .height(containerHeight - 100)
+              .colorSchema(colors)
+              .grid('horizontal')
+              .on('customMouseOver', chartTooltip.show)
+              .on('customMouseMove', chartTooltip.update)
+              .on('customMouseOut', chartTooltip.hide)
+          }
+          if (optionalData) {
+              container.datum(optionalData).call(stackedArea)
+          } else {
+              container.datum(dataset).call(stackedArea)
+          }
           chartTooltip
             .topicLabel('values')
             .title('Sentiments')
             .topicsOrder(['positive', 'neutral', 'negative'])
-        // }
 
-        // BRUSCHART
-        // brushChart
-        //   .width(containerWidth)
-        //   .height(100)
-        //   .on('customBrushStart', function(brushExtent) {
-        //     console.log('brush start')
-        //     console.log(brushExtent)
-        //     var format = d3.timeFormat('%m/%d/%Y');
-        //     d3.select('.js-start-date').text(format(brushExtent[0]));
-        //     d3.select('.js-end-date').text(format(brushExtent[1]));
-        //     d3.select('.js-date-range').classed('is-hidden', false);
-        //     // // Filter
-        //     d3.selectAll('#sentimentsBritechartsStackedArea .stacked-area').remove()
-        //     stackedArea(optionalColorSchema ? colors : null, filterData(brushExtent[0], brushExtent[1]))
-        //     stackedArea
-        //       .isAnimated(true)
-        //       .tooltipThreshold(600)
-        //       .width(containerWidth)
-        //       .height(containerHeight - 100)
-        //       .colorSchema(colors)
-        //       .grid('horizontal')
-        //       .on('customMouseOver', chartTooltip.show)
-        //       .on('customMouseMove', chartTooltip.update)
-        //       .on('customMouseOut', chartTooltip.hide)
-        //   })
-        container.datum(this.data).call(stackedArea)
-        var tooltipContainer = d3.select('#sentimentsBritechartsStackedArea .metadata-group .vertical-marker-container')
-        // var brushContainer = d3.select('#sentimentsBritechartsStackedAreaBrush')
-        tooltipContainer.datum([]).call(chartTooltip)
-        // brushContainer.datum(this.data).call(brushChart)
+          tooltipContainer = d3.select('#sentimentsBritechartsStackedArea .metadata-group .vertical-marker-container')
+          tooltipContainer.datum([]).call(chartTooltip)
+        }
+        createStackedChart();
+
+
+        function createBrushChart(){
+          var brushChart = new britecharts.brush()
+          var brushContainer = d3.select('#sentimentsBritechartsStackedAreaBrush')
+          containerWidth = document.documentElement.clientWidth
+          brushChart
+            .width(containerWidth)
+            .height(100)
+            .on('customBrushEnd', function(brushExtent) {
+                d3.select('#sentimentsBritechartsStackedArea .stacked-area').remove()
+                d3.select('#sentimentsBritechartsStackedArea .metadata-group .vertical-marker-container').remove()
+                optionalDataset = filterData(dataset, brushExtent[0], brushExtent[1])
+                createStackedChart(optionalDataset);
+
+          });
+          brushContainer.datum(dataset).call(brushChart)
+        }
+        createBrushChart();
+      
+        window.addEventListener("resize", function() {
+          d3.select('#sentimentsBritechartsStackedArea .stacked-area').remove()
+          d3.select('#sentimentsBritechartsStackedAreaBrush .brush-chart').remove()
+
+          if (optionalDataset) {
+            createStackedChart(optionalDataset);
+          } else {
+            createStackedChart(dataset)
+          }
+          createBrushChart()
+        })
+
       })
-      .catch(e => {
-        this.chartError = true
-        this.errors.push(e)
-      })
 
-      // cointainer width/height
-      // let containerWidth = document.documentElement.clientWidth
-      // let containerHeight = document.documentElement.clientHeight
-      // let containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
+      function filterData(dataset, d0, d1) {
+          var data = dataset
+          data = data.filter(isInRange.bind(null, d0, d1));
+          return data;
+      }
 
-      // var container = d3.select('#sentimentsBritechartsStackedArea')
-      // var stackedArea = new StackedArea()
-      // if (container.node()) {
-      //     stackedArea
-      //       .isAnimated(true)
-      //       .tooltipThreshold(600)
-      //       .width(600)
-      //       .height(600)
-      //       .colorSchema(colorSchemas.sentiments)
-      // }
-      // container.datum(this.testData).call(stackedArea)
+      function isInRange(d0, d1, d) {
+          return new Date(d.date) >= d0 && new Date(d.date) <= d1;
+      }
+
     }
   }
 })
