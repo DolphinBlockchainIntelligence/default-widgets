@@ -267,13 +267,22 @@ new Vue({
             link.dashedType = 'icon-' + link.type.toLowerCase().split(' ').join('-').replace('(', '').replace(')', '')
           })
         }
+        if (projectComputed.symbol = 'NA') {
+          delete projectComputed.symbol
+        }
 
         if (projectComputed.sales) {
 
           projectComputed.sales.forEach(function(sale){
-            sale.start = moment(sale.start).format('D MMM YYYY')
-            sale.end = moment(sale.end).format('D MMM YYYY')
-            sale.real = moment(sale.real).format('D MMM YYYY')
+            if (sale.start) {
+              sale.start = moment(sale.start).format('D MMM YYYY')
+            }
+            if (sale.end) {
+              sale.end = moment(sale.end).format('D MMM YYYY')
+            }
+            if (sale.real) {
+              sale.real = moment(sale.real).format('D MMM YYYY')
+            }
           })
 
           projectComputed.sales.forEach(function (sale, i) {
@@ -285,7 +294,9 @@ new Vue({
           })
         }
 
-        projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
+        if (projectComputed.legaldate) {
+          projectComputed.legaldate = moment(projectComputed.legaldate).format('D MMM YYYY')
+        }
 
         projectComputed.hasTeam = false
         projectComputed.hasKeywords = false
