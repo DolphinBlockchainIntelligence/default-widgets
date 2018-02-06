@@ -20,9 +20,11 @@ body
 		position: relative
 		@media(max-width: 660px)
 			flex: 0 0 100%
+			min-width: 200px
 		h3
 			color: #f48b52
 			font-size: 24px
+			padding-right: 50px
 		p
 			color: #5e5e5e
 			margin-bottom: 3px
@@ -41,8 +43,13 @@ body
 			background-size: 100%
 			background-position: right bottom
 			background-repeat: no-repeat
-			@media(max-width: 440px)
-				right: 20px
+			@media(max-width: 1279px)
+				right: 10px
+				top: auto
+				bottom: 10px
+				width: 40px
+				height: 60px
+				background-size: contain
 	.itrend-widgets-footer
 		flex: 1 0 100%
 		display: flex
@@ -50,7 +57,6 @@ body
 		align-items: center
 		span
 			flex: 0 0 auto
-			
 			font-weight: bold
 			font-size: 18px
 		img
