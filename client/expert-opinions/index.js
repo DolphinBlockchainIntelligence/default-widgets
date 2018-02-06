@@ -12,10 +12,10 @@ new Vue({
               <div class="rating_marker">
                 <star-rating :increment="1" :fixed-points="2" :read-only="false" :star-size="22" :border-width="1" :show-rating="false" border-color="#429eae" inactive-color="#fff" active-color="#429eae" v-model="opinion.expert.rating"></star-rating>
                 <div class="rating_text">expert rating</div>
-                <form class="rating_popover">
+                <form class="rating_popover" @submit.prevent="onSubmit($event)">
                   <textarea type="text" rows="3" class="form-control"></textarea>
                   <div class="btn-group btn-block" role="group" aria-label="Basic example">
-                    <button type="submit" class="btn btn-secondary">Send</button>
+                    <button type="submit" class="btn btn-secondary" type="submit">Send</button>
                     <button type="button" class="btn btn-secondary rating_popover_close">Close</button>
                   </div>
                 </form>
@@ -178,7 +178,28 @@ new Vue({
     })
   },
   methods: {
-    
+    onSubmit: function(e){
+      var target = $(e.currentTarget).parents('.opinion')
+      var index = target.index()
+
+      var opinion = $(e.currentTarget).find('textarea').val()
+      var mark = this.project.rating[index].expert.rating
+      var uid = this.project.rating[index].uid
+      var _id = this.project.rating._id
+
+      var form = {
+        opinion: opinion,
+        mark: mark
+      }
+      console.log(form)
+      axios.post('/base/rating/' + _id + '/opinion/' + uid, form)
+      .then((response) => {
+        console.log(response.status);
+        if (response.status == 200) {
+          console.log('feedback send')
+        }
+      }); 
+    }
   },
   filters: {
     ifEmpty: function (value) {
