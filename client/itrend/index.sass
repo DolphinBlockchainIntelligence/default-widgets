@@ -1,0 +1,58 @@
+body
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+.itrend-widgets
+	background-color: #dddddb
+	flex: 1 0 auto
+	display: flex
+	justify-content: space-between
+	flex-direction: row
+	flex-wrap: wrap
+	padding: 30px 25px
+	.itrend-widget
+		flex: 0 0 48%
+		min-width: 300px
+		background-color: #fff
+		padding: 18px
+		margin-bottom: 28px
+		position: relative
+		@media(max-width: 660px)
+			flex: 0 0 100%
+		h3
+			color: #ef8f43
+			font-size: 24px
+		p
+			color: #5e5e5e
+		.negative
+			color: #cd3434
+		.positive
+			color: #71f271
+		.itrend-widget-ico
+			position: absolute
+			right: 40px
+			width: 25%
+			min-width: 100px
+			left: auto
+			top: 20px
+			bottom: 20px
+			background-size: 100%
+			background-position: right bottom
+			background-repeat: no-repeat
+			@media(max-width: 440px)
+				right: 20px
+	.itrend-widgets-footer
+		flex: 1 0 100%
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		span
+			flex: 0 0 auto
+			
+			font-weight: bold
+			font-size: 18px
+		img
+			flex: 0 0 auto
+			height: 30px
+			width: auto
+			margin-left: 10px
