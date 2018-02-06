@@ -9,25 +9,27 @@ body
 	justify-content: space-between
 	flex-direction: row
 	flex-wrap: wrap
-	padding: 30px 25px
+	padding: 30px 25px 0
 	.itrend-widget
-		flex: 0 0 48%
+		flex: 0 0 auto
+		width: calc(50% - 15px)
 		min-width: 300px
 		background-color: #fff
 		padding: 18px
-		margin-bottom: 28px
+		margin-bottom: 30px
 		position: relative
 		@media(max-width: 660px)
 			flex: 0 0 100%
 		h3
-			color: #ef8f43
+			color: #f48b52
 			font-size: 24px
 		p
 			color: #5e5e5e
+			margin-bottom: 3px
 		.negative
-			color: #cd3434
+			color: #990000
 		.positive
-			color: #71f271
+			color: #009900
 		.itrend-widget-ico
 			position: absolute
 			right: 40px

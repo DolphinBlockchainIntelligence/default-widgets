@@ -32,16 +32,18 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding: 30px 25px; }
+  padding: 30px 25px 0; }
   .itrend-widgets .itrend-widget {
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 48%;
-        -ms-flex: 0 0 48%;
-            flex: 0 0 48%;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: -webkit-calc(50% - 15px);
+    width: calc(50% - 15px);
     min-width: 300px;
     background-color: #fff;
     padding: 18px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
     position: relative; }
     @media (max-width: 660px) {
       .itrend-widgets .itrend-widget {
@@ -50,14 +52,15 @@ body {
             -ms-flex: 0 0 100%;
                 flex: 0 0 100%; } }
     .itrend-widgets .itrend-widget h3 {
-      color: #ef8f43;
+      color: #f48b52;
       font-size: 24px; }
     .itrend-widgets .itrend-widget p {
-      color: #5e5e5e; }
+      color: #5e5e5e;
+      margin-bottom: 3px; }
     .itrend-widgets .itrend-widget .negative {
-      color: #cd3434; }
+      color: #990000; }
     .itrend-widgets .itrend-widget .positive {
-      color: #71f271; }
+      color: #009900; }
     .itrend-widgets .itrend-widget .itrend-widget-ico {
       position: absolute;
       right: 40px;
