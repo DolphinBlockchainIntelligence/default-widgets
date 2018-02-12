@@ -4,8 +4,7 @@ new Vue({
   `
   <div class="itrend-widgets">
 
-    // peaks
-    <template v-if="id == '5a78a6d15b82e50001b5ae12'">
+    <template name="peaks" v-if="id == '5a78a6d15b82e50001b5ae12'">
       <div class="itrend-widget">
         <h3>Data</h3>
         <p>Social mentions: <strong>1</strong></p>
@@ -37,8 +36,7 @@ new Vue({
       </div>
     </template>
 
-    // tellow
-    <template v-if="id == '5a74890501bf07000150410c'">
+    <template name="tellow" v-if="id == '5a74890501bf07000150410c'">
       <div class="itrend-widget">
         <h3>Data</h3>
         <p>Social mentions: <strong>0</strong></p>
@@ -58,24 +56,13 @@ new Vue({
       </div>
       <div class="itrend-widget">
         <h3>Largest audiences</h3>
-        // <p>Martijn Pennekamp: <strong>8,391</strong></p>
-        // <p>Starten.nl: <strong>390</strong></p>
-        // <p>Sijbrand Tieleman: <strong>379</strong></p>
-        // <p>Stella Braber: <strong>214</strong></p>
-        // <p>Peaks: <strong>191</strong></p>
-        // <div class="itrend-widget-ico" style="background-image: url('img/audience-128.gif');"></div>
       </div>
       <div class="itrend-widget">
         <h3>Most engaging authors</h3>
-        // <p>Rabobank: <strong>3</strong> replies</p>
-        // <p>Peaks: <strong>3</strong> replies</p>
-        // <p>Stella Braber: <strong>2</strong> replies</p>
-        // <div class="itrend-widget-ico" style="background-image: url('img/engage-128.gif');"></div>
       </div>
     </template>
 
-    // headstart
-    <template v-if="id == '5a73628f8f45f500017ebb7b'">
+    <template name="headstart" v-if="id == '5a73628f8f45f500017ebb7b'">
       <div class="itrend-widget">
         <h3>Data</h3>
         <p>Social mentions: <strong>3</strong></p>
