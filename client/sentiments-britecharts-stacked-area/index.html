@@ -6,16 +6,19 @@
 
 <style>
 html {
-  overflow-x: hidden;
+  overflow-x: hidden
 }
 body {
-  margin: 0;
+  margin: 0
 }
 .title {
-  margin: 0 10px;
+  margin: 0 10px
 }
 .highcharts-container, .sentimentsLineChartundefined {
-  width: 100%;
+  width: 100%
+}
+#sentimentsBritechartsStackedAreaBrush .brush-area {
+  fill: #eff2f6
 }
 </style>
 
@@ -67,7 +70,8 @@ new Vue({
       width: 1000,
       height: 1000,
       margin: 0,
-      data: []
+      data: [],
+      avgData: []
     }
   },
   mounted () {
@@ -85,10 +89,10 @@ new Vue({
         return decodeURIComponent(results[2].replace(/\+/g, " "));
       }
       var postId = getParameterByName('id', window.location.href)
-      console.log(postId)
+      // console.log(postId)
       axios.get('/data/btt-sentiments/S'+ postId +'.json')
       .then(response => {
-        console.log(response)
+        // console.log(response)
         let chartData = response.data.chart
         let pointStart = response.data.pointStart * 10
         let pointInterval = 86400000 // 3600 * 1000 * 24
@@ -108,6 +112,12 @@ new Vue({
         let containerHeight = document.documentElement.clientHeight
         let containerSize = (document.documentElement.clientWidth <= document.documentElement.clientHeight) ? document.documentElement.clientWidth : document.documentElement.clientHeight
         let dataset = this.data
+        let neutralDataset = _.cloneDeep(dataset)
+        neutralDataset = neutralDataset.filter(function(item) {
+          if (item.name != 'positive' && item.name != 'negative') {
+            return item
+          }
+        })
         let optionalDataset
 
         function createStackedChart(optionalData){
@@ -153,6 +163,8 @@ new Vue({
           brushChart
             .width(containerWidth)
             .height(100)
+            .xAxisFormat(brushChart.axisTimeCombinations.MONTH_YEAR)
+            // .colorSchema('#cc0000')
             .on('customBrushEnd', function(brushExtent) {
                 d3.select('#sentimentsBritechartsStackedArea .stacked-area').remove()
                 d3.select('#sentimentsBritechartsStackedArea .metadata-group .vertical-marker-container').remove()
@@ -160,7 +172,8 @@ new Vue({
                 createStackedChart(optionalDataset);
 
           });
-          brushContainer.datum(dataset).call(brushChart)
+          // console.log(dataset)
+          brushContainer.datum(neutralDataset).call(brushChart)
         }
         createBrushChart();
       
