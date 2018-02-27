@@ -114,7 +114,7 @@ new Vue({
             </div>
             <div class="opinion_descr">
               <h6>review</h6>
-              <p>{{opinion.review}}</p>
+              <p class="pre">{{opinion.review}}</p>
             </div>
           </div>
         </div>
@@ -185,20 +185,23 @@ new Vue({
       var opinion = $(e.currentTarget).find('textarea').val()
       var mark = this.project.rating[index].expert.rating
       var uid = this.project.rating[index].uid
-      var _id = this.project.rating._id
+      var _id = this.project._id
 
       var form = {
         opinion: opinion,
         mark: mark
       }
+      console.log('/base/rating/' + _id + '/opinion/' + uid)
       console.log(form)
       axios.post('/base/rating/' + _id + '/opinion/' + uid, form)
       .then((response) => {
-        console.log(response.status);
+        console.log(response.status)
         if (response.status == 200) {
           console.log('feedback send')
         }
-      }); 
+      }).catch((error) => {
+        console.log(error.response)
+      })
     }
   },
   filters: {

@@ -3,6 +3,8 @@
 		{"title": "Number of tokensales", "url": "/number-of-tokensales/index.html"},
 		{"title": "Top 20 largest", "url": "/top-ico/index.html"},
 		{"title": "Projects by industry", "url": "/projects-by-industry/index.html"},
-		{"title": "Auth", "url": "/not-auth/index.html"}
+		{"title": "Auth", "url": "/not-auth/index.html"},
+		{"title": "CoinIndex.agency: Advertising industry (digital)", "url": "/coinindex/linechart.html"},
+		{"title": "CoinIndex.agency: Advertising industry (digital)", "url": "/coinindex/table.html"}
 	]
 }

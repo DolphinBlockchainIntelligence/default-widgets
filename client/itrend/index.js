@@ -65,9 +65,9 @@ new Vue({
     <template name="headstart" v-if="id == '5a73628f8f45f500017ebb7b'">
       <div class="itrend-widget">
         <h3>Data</h3>
-        <p>Social mentions: <strong>3</strong></p>
-        <p>People: <strong>3</strong></p>
-        <p>Links shared: <strong>1</strong></p>
+        <p>Social mentions: <strong>5</strong></p>
+        <p>People: <strong>5</strong></p>
+        <p>Links shared: <strong>4</strong></p>
         <p>Images shared: <strong>0</strong></p>
         <p>News found: <strong>0</strong></p>
         <p>Terms tracked: <strong>1</strong></p>
@@ -75,23 +75,26 @@ new Vue({
       </div>
       <div class="itrend-widget">
         <h3>Timeline</h3>
-        <p>Today: <strong>3</strong> mentions <strong class="negative">-84%</strong></p></p>
-        <p>This week: <strong>61</strong> mentions <strong class="positive">+1,120%</strong></p>
-        <p>This month: <strong>66</strong> mentions</p>
+        <p>Today: <strong>5</strong> mentions <strong class="positive">+150%</strong></p></p>
+        <p>This week: <strong>58</strong> mentions <strong class="positive">+383%</strong></p>
+        <p>This month: <strong>70</strong> mentions</p>
         <div class="itrend-widget-ico" style="background-image: url('img/timeline-128.gif');"></div>
       </div>
       <div class="itrend-widget">
         <h3>Largest audiences</h3>
-        <p>G. Amsterdam: <strong>2,181</strong></p>
         <p>CryptoHolland: <strong>272</strong></p>
-        <p>f0nky: <strong>9</strong></p>
+        <p>CryptoBraza: <strong>221</strong></p>
+        <p>Ash Vecchio: <strong>200</strong></p>
+        <p>Income Resume: <strong>45</strong></p>
+        <p>YR: <strong>37</strong></p>
         <div class="itrend-widget-ico" style="background-image: url('img/audience-128.gif');"></div>
       </div>
       <div class="itrend-widget">
         <h3>Most engaging authors</h3>
-        <p>ICO HeadStart: <strong>2</strong> replies</p>
+        <p>ICO HeadStart: <strong>4</strong> replies</p>
+        <p>tehMoonwalkeR: <strong>3</strong> replies</p>
         <p>MrMoorfield: <strong>1</strong> replies</p>
-        <p>tehMoonwalkeR: <strong>1</strong> replies</p>
+        <p>UTRUST: <strong>1</strong> replies</p>
         <p>Liz: <strong>1</strong> replies</p>
         <div class="itrend-widget-ico" style="background-image: url('img/engage-128.gif');"></div>
       </div>
